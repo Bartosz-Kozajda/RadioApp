@@ -1,0 +1,36 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    // Android
+    androidBuildToolsVersion = "27.0.2"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    // Libraries
+    supportLibraryVersion = '27.0.2'
+    kotlinVersion = '1.2.0'
+    constraintLayout = '1.0.2'
+
+    // Test
+    jUnitVersion = '4.12'
+    espressoVersion = '3.0.1'
+    androidSupportRunnerVersion = '1.0.1'
+
+    // App
+    appDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            appCompatV7:        "com.android.support:appcompat-v7:${supportLibraryVersion}",
+            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayout}"
+    ]
+
+    testDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            supportRunner:      "com.android.support.test:runner:${androidSupportRunnerVersion}",
+            espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    ]
+}

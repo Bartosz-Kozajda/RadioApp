@@ -7,15 +7,19 @@ apply plugin: 'kotlin-android-extensions'
 apply from: '../ktlint.gradle'
 
 android {
-    compileSdkVersion 26
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
     defaultConfig {
         applicationId "com.bkozajda.radioapp"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,11 +29,16 @@ android {
 }
 
 dependencies {
+    def appDependencies = rootProject.ext.appDependencies
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation appDependencies.kotlin
+    implementation appDependencies.appCompatV7
+    implementation appDependencies.constraintLayout
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation  testDependencies.junit
+    androidTestImplementation testDependencies.supportRunner
+    androidTestImplementation testDependencies.espressoCore
 }

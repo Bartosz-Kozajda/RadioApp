@@ -1,5 +1,7 @@
 apply plugin: 'kotlin'
 
+apply from: '../ktlint.gradle'
+
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
 
@@ -9,5 +11,7 @@ configurations.all {
     }
 }
 dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
 
+    implementation presentationDependencies.kotlin
 }

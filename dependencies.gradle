@@ -34,7 +34,13 @@ ext {
             espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoVersion}"
     ]
 
+    // Presentation
     presentationDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+    ]
+
+    // Domain
+    domainDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     ]
 }

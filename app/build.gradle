@@ -29,6 +29,8 @@ android {
 }
 
 dependencies {
+    implementation project(':presentation')
+
     def appDependencies = rootProject.ext.appDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])

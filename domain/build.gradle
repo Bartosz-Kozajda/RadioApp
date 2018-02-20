@@ -11,9 +11,7 @@ configurations.all {
     }
 }
 dependencies {
-    implementation project(':domain')
+    def domainDependencies = rootProject.ext.domainDependencies
 
-    def presentationDependencies = rootProject.ext.presentationDependencies
-
-    implementation presentationDependencies.kotlin
+    implementation domainDependencies.kotlin
 }

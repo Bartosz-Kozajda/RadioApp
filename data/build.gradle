@@ -1,0 +1,18 @@
+apply plugin: 'kotlin'
+
+apply from: '../ktlint.gradle'
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+configurations.all {
+    resolutionStrategy {
+        force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    }
+}
+
+dependencies {
+    def dataDependencies = rootProject.ext.dataDependencies
+
+    implementation dataDependencies.kotlin
+}

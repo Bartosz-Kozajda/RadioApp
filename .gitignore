@@ -44,3 +44,7 @@ coverage-error.log
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
+
+# Project configuration folder
+config/*
+!config/template_config.properties

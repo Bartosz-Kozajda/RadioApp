@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply from: '../ktlint.gradle'
 
+apply from: "../config.gradle"
+
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 

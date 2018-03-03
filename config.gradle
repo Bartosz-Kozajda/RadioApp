@@ -1,0 +1,24 @@
+def configProperties = rootProject.file('config/config.properties')
+
+ext {
+    config = [
+            apiKey  : getProperty('API_KEY', configProperties)
+    ]
+}
+
+android {
+    defaultConfig {
+        buildConfigField 'String', 'API_URL', "\"http://api.themoviedb.org/3/\""
+        buildConfigField 'String', 'API_KEY',  "\"$config.apiKey\""
+    }
+}
+
+static def getProperty(String prop, File propsFile) {
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        return props[prop]
+    } else {
+        return System.getenv(prop)
+    }
+}

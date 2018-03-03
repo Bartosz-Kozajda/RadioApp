@@ -5,8 +5,10 @@ android:
   components:
   - tools
   - platform-tools
-  - build-tools-26.0.2
-  - android-26
+  - build-tools-27.0.2
+  - android-27
+before_install:
+  - yes | sdkmanager "platforms;android-27"
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

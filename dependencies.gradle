@@ -43,4 +43,9 @@ ext {
     domainDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     ]
+
+    // Data
+    dataDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+    ]
 }

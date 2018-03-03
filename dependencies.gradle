@@ -48,4 +48,9 @@ ext {
     dataDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     ]
+
+    // Remote
+    remoteDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+    ]
 }

@@ -14,7 +14,8 @@ ext {
     // Libraries
     supportLibraryVersion = '27.0.2'
     kotlinVersion = '1.2.0'
-    constraintLayout = '1.0.2'
+    constraintLayoutVersion = '1.0.2'
+    gsonVersion = '2.8.0'
 
     // Test
     jUnitVersion = '4.12'
@@ -25,7 +26,7 @@ ext {
     appDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             appCompatV7:        "com.android.support:appcompat-v7:${supportLibraryVersion}",
-            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayout}"
+            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
     ]
 
     testDependencies = [
@@ -51,6 +52,7 @@ ext {
 
     // Remote
     remoteDependencies = [
-            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            gson:               "com.google.code.gson:gson:${gsonVersion}"
     ]
 }

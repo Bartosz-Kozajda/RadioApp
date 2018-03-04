@@ -11,7 +11,10 @@ configurations.all {
     }
 }
 dependencies {
+    implementation project(':data')
+
     def remoteDependencies = rootProject.ext.remoteDependencies
 
     implementation remoteDependencies.kotlin
+    implementation remoteDependencies.gson
 }

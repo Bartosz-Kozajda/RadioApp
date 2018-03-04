@@ -16,6 +16,12 @@ ext {
     kotlinVersion = '1.2.0'
     constraintLayoutVersion = '1.0.2'
     gsonVersion = '2.8.0'
+    retrofitVersion = '2.3.0'
+    okHttpVersion = '3.8.1'
+    daggerVersion = '2.14'
+    rxJavaVersion = '2.1.10'
+    rxKotlinVersion = '2.2.0'
+    rxAndroidVersion = '2.0.2'
 
     // Test
     jUnitVersion = '4.12'
@@ -53,6 +59,14 @@ ext {
     // Remote
     remoteDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
-            gson:               "com.google.code.gson:gson:${gsonVersion}"
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
     ]
 }

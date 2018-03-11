@@ -23,6 +23,5 @@ dependencies {
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
-    implementation remoteDependencies.dagger
-    implementation remoteDependencies.daggerCompiler
+    implementation remoteDependencies.javaxInject
 }

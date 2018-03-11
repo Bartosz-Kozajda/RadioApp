@@ -7,6 +7,8 @@ import retrofit2.http.Query
 
 interface RetrofitMovieService {
     @GET("discover/movie")
-    fun discoverMovies(@Query("api_key") apiKey: String,
-                       @Query("page") page: Int): Single<List<MovieModel>>
+    fun discoverMovies(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: Int
+    ): Single<List<MovieModel>>
 }

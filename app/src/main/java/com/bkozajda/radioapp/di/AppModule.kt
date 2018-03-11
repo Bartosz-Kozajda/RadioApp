@@ -23,21 +23,25 @@ open class AppModule {
 
     @Provides
     @PerApplication
-    fun provideContext(application: Application): Context  = application
+    fun provideContext(application: Application): Context = application
 
     @Provides
     @PerApplication
-    fun provideMovieRepository(mapper: MovieMapper,
-                               movieRemote: MovieRemote) : MovieRepository = MovieDataRepository(mapper, movieRemote)
+    fun provideMovieRepository(
+        mapper: MovieMapper,
+        movieRemote: MovieRemote
+    ): MovieRepository = MovieDataRepository(mapper, movieRemote)
 
     @Provides
     @PerApplication
-    fun provideMovieRemote(service: RetrofitMovieService,
-                           movieEntityMapper: MovieEntityMapper) : MovieRemote  = MovieService(service, movieEntityMapper)
+    fun provideMovieRemote(
+        service: RetrofitMovieService,
+        movieEntityMapper: MovieEntityMapper
+    ): MovieRemote = MovieService(service, movieEntityMapper)
 
     @Provides
     @PerApplication
-    fun provideMovieService() : RetrofitMovieService = RemoteModule.provideMovieService()
+    fun provideMovieService(): RetrofitMovieService = RemoteModule.provideMovieService()
 
 /*    @Provides
     @PerApplication

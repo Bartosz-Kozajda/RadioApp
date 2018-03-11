@@ -6,9 +6,11 @@ import io.reactivex.observers.DisposableSingleObserver
 import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import javax.inject.Inject
 
-class DiscoverMoviesPresenter @Inject constructor(val view: DiscoverMoviesMvp.View,
-                                                  val discoverMoviesUseCase: DiscoverMoviesUseCase,
-                                                  val movieViewModelMapper: MovieViewModelMapper) : DiscoverMoviesMvp.Presenter {
+class DiscoverMoviesPresenter @Inject constructor(
+    val view: DiscoverMoviesMvp.View,
+    val discoverMoviesUseCase: DiscoverMoviesUseCase,
+    val movieViewModelMapper: MovieViewModelMapper
+) : DiscoverMoviesMvp.Presenter {
     override fun start() {
         collectMovies()
     }
@@ -21,7 +23,7 @@ class DiscoverMoviesPresenter @Inject constructor(val view: DiscoverMoviesMvp.Vi
         discoverMoviesUseCase.execute(DiscoverMoviesObserver())
     }
 
-    inner class DiscoverMoviesObserver: DisposableSingleObserver<List<Movie>>() {
+    inner class DiscoverMoviesObserver : DisposableSingleObserver<List<Movie>>() {
         override fun onError(e: Throwable) {
             System.out.println(e)
         }

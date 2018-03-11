@@ -10,11 +10,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RemoteModule {
 
-    fun provideMovieService() : RetrofitMovieService {
+    fun provideMovieService(): RetrofitMovieService {
         return provideMovieService(provideOkHttpClient(), provideGson())
     }
 
-    private fun provideMovieService(okHttpClient: OkHttpClient, gson: Gson) : RetrofitMovieService {
+    private fun provideMovieService(okHttpClient: OkHttpClient, gson: Gson): RetrofitMovieService {
         val retrofit = Retrofit.Builder()
                 .baseUrl("http://api.themoviedb.org/3/")
                 .client(okHttpClient)
@@ -24,12 +24,12 @@ object RemoteModule {
         return retrofit.create(RetrofitMovieService::class.java)
     }
 
-    private fun provideOkHttpClient() : OkHttpClient {
+    private fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
                 .build()
     }
 
-    private fun provideGson() : Gson {
+    private fun provideGson(): Gson {
         return GsonBuilder()
                 .setLenient()
                 .create()

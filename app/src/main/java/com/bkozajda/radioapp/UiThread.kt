@@ -13,5 +13,4 @@ class UiThread @Inject internal constructor() : PostExecutionThread {
 
     override val scheduler: Scheduler
         get() = AndroidSchedulers.mainThread()
-
 }

@@ -11,7 +11,7 @@ import javax.inject.Inject
  * Decorated [ThreadPoolExecutor]
  */
 // TODO remove this class
-open class JobExecutor @Inject constructor(): ThreadExecutor {
+open class JobExecutor @Inject constructor() : ThreadExecutor {
 
     private val workQueue: LinkedBlockingQueue<Runnable>
 

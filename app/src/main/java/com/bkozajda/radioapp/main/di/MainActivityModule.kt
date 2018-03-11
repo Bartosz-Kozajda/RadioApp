@@ -18,7 +18,9 @@ open class MainActivityModule {
 
     @Provides
     @PerActivity
-    fun provideDiscoverMoviesPresenter(view: DiscoverMoviesMvp.View,
-                                       discoverMoviesUseCase: DiscoverMoviesUseCase,
-                                       mapper: MovieViewModelMapper) : DiscoverMoviesMvp.Presenter = DiscoverMoviesPresenter(view, discoverMoviesUseCase, mapper)
+    fun provideDiscoverMoviesPresenter(
+        view: DiscoverMoviesMvp.View,
+        discoverMoviesUseCase: DiscoverMoviesUseCase,
+        mapper: MovieViewModelMapper
+    ): DiscoverMoviesMvp.Presenter = DiscoverMoviesPresenter(view, discoverMoviesUseCase, mapper)
 }

@@ -10,10 +10,6 @@ apply from: '../ktlint.gradle'
 
 apply from: "../config.gradle"
 
-configurations {
-    all*.exclude group: 'com.android.support'
-}
-
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 

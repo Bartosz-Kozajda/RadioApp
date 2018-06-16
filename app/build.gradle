@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 apply from: '../ktlint.gradle'
 
 apply from: "../config.gradle"
@@ -32,13 +34,24 @@ android {
 
 dependencies {
     implementation project(':presentation')
+    implementation project(':data')
+    implementation project(':remote')
+    implementation project(':domain')
 
     def appDependencies = rootProject.ext.appDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation appDependencies.kotlin
     implementation appDependencies.appCompatV7
+    implementation appDependencies.androidAnnotations
     implementation appDependencies.constraintLayout
+    implementation appDependencies.rxKotlin
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.dagger
+    implementation appDependencies.daggerAndroidSupport
+    implementation appDependencies.javaxInject
+    kapt appDependencies.daggerCompiler
+    kapt appDependencies.daggerAndroidProcessor
 
     def testDependencies = rootProject.ext.testDependencies
 

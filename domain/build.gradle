@@ -14,4 +14,6 @@ dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
 
     implementation domainDependencies.kotlin
+    implementation domainDependencies.rxKotlin
+    implementation domainDependencies.javaxInject
 }

@@ -13,7 +13,7 @@ class MovieService @Inject constructor(
 ) : MovieRemote {
     override fun discoverMovies(page: Int): Single<List<MovieEntity>> {
         return retrofitMovieService.discoverMovies(apiKey, page).map {
-            it.map {
+            it.movies.map {
                 item -> movieEntityMapper.mapFromRemote(item)
             }
         }

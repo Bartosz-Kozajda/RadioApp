@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bkozajda.presentation.discover.DiscoverMoviesMvp
 import com.bkozajda.presentation.mapper.MovieViewModelMapper
+import com.bkozajda.presentation.model.MovieViewModel
 import com.bkozajda.radioapp.R
 import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), DiscoverMoviesMvp.View {
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity(), DiscoverMoviesMvp.View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showMovies() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showMovies(movies: List<MovieViewModel>) {
+        text.text = movies.toString()
     }
 }

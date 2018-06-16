@@ -1,15 +1,15 @@
 package com.bkozajda.presentation.discover
 
 import com.bkozajda.domain.model.Movie
+import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import com.bkozajda.presentation.mapper.MovieViewModelMapper
 import io.reactivex.observers.DisposableSingleObserver
-import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import javax.inject.Inject
 
 class DiscoverMoviesPresenter @Inject constructor(
     val view: DiscoverMoviesMvp.View,
-    val discoverMoviesUseCase: DiscoverMoviesUseCase,
-    val movieViewModelMapper: MovieViewModelMapper
+    private val discoverMoviesUseCase: DiscoverMoviesUseCase,
+    private val movieViewModelMapper: MovieViewModelMapper
 ) : DiscoverMoviesMvp.Presenter {
     override fun start() {
         collectMovies()
@@ -28,8 +28,8 @@ class DiscoverMoviesPresenter @Inject constructor(
             System.out.println(e)
         }
 
-        override fun onSuccess(t: List<Movie>) {
-            System.out.println(t)
+        override fun onSuccess(movies: List<Movie>) {
+            view.showMovies(movies.map { it -> movieViewModelMapper.mapToView(it) })
         }
     }
 }

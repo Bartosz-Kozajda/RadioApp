@@ -1,6 +1,6 @@
 package com.bkozajda.remote.service
 
-import com.bkozajda.remote.model.MovieModel
+import com.bkozajda.remote.model.DiscoverModel
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,5 +10,5 @@ interface RetrofitMovieService {
     fun discoverMovies(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int
-    ): Single<List<MovieModel>>
+    ): Single<DiscoverModel>
 }

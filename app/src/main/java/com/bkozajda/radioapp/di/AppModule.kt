@@ -47,18 +47,11 @@ open class AppModule {
 
     @Provides
     @PerApplication
-    fun provideDiscoverMoviesUseCase(repository: MovieRepository,
-                                     threadExecutor: ThreadExecutor,
-                                     postExecutionThread: PostExecutionThread
+    fun provideDiscoverMoviesUseCase(
+        repository: MovieRepository,
+        threadExecutor: ThreadExecutor,
+        postExecutionThread: PostExecutionThread
     ): DiscoverMoviesUseCase = DiscoverMoviesUseCase(repository, threadExecutor, postExecutionThread)
-
-/*    @Provides
-    @PerApplication
-    fun provideMovieMapper(): MovieMapper = MovieMapper()
-
-    @Provides
-    @PerApplication
-    fun provideMovieEntityMapper(): MovieEntityMapper = MovieEntityMapper()*/
 
     @Provides
     @PerApplication

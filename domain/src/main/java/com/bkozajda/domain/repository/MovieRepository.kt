@@ -4,5 +4,5 @@ import com.bkozajda.domain.model.Movie
 import io.reactivex.Single
 
 interface MovieRepository {
-    fun discoverMovies(apiKey: String, page: Int): Single<List<Movie>>
+    fun discoverMovies(page: Int): Single<List<Movie>>
 }

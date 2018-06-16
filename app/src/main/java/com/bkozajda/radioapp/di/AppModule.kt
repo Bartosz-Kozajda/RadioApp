@@ -6,6 +6,10 @@ import com.bkozajda.data.executor.JobExecutor
 import com.bkozajda.data.mapper.MovieMapper
 import com.bkozajda.data.repository.MovieDataRepository
 import com.bkozajda.data.repository.MovieRemote
+import com.bkozajda.domain.repository.MovieRepository
+import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
+import com.bkozajda.radioapp.BuildConfig
+import com.bkozajda.radioapp.UiThread
 import com.bkozajda.radioapp.di.scopes.PerApplication
 import com.bkozajda.remote.di.RemoteModule
 import com.bkozajda.remote.mapper.MovieEntityMapper
@@ -13,8 +17,6 @@ import com.bkozajda.remote.service.MovieService
 import com.bkozajda.remote.service.RetrofitMovieService
 import dagger.Module
 import dagger.Provides
-import com.bkozajda.domain.repository.MovieRepository
-import com.bkozajda.radioapp.UiThread
 import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor
 
@@ -37,11 +39,18 @@ open class AppModule {
     fun provideMovieRemote(
         service: RetrofitMovieService,
         movieEntityMapper: MovieEntityMapper
-    ): MovieRemote = MovieService(service, movieEntityMapper)
+    ): MovieRemote = MovieService(service, movieEntityMapper, BuildConfig.API_KEY)
 
     @Provides
     @PerApplication
-    fun provideMovieService(): RetrofitMovieService = RemoteModule.provideMovieService()
+    fun provideMovieService(): RetrofitMovieService = RemoteModule.provideMovieService(BuildConfig.API_URL)
+
+    @Provides
+    @PerApplication
+    fun provideDiscoverMoviesUseCase(repository: MovieRepository,
+                                     threadExecutor: ThreadExecutor,
+                                     postExecutionThread: PostExecutionThread
+    ): DiscoverMoviesUseCase = DiscoverMoviesUseCase(repository, threadExecutor, postExecutionThread)
 
 /*    @Provides
     @PerApplication

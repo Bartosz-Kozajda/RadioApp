@@ -10,8 +10,8 @@ class MovieDataRepository @Inject constructor(
     private val movieMapper: MovieMapper,
     private val movieRemote: MovieRemote
 ) : MovieRepository {
-    override fun discoverMovies(apiKey: String, page: Int): Single<List<Movie>> {
-        return movieRemote.discoverMovies(apiKey, page)
+    override fun discoverMovies(page: Int): Single<List<Movie>> {
+        return movieRemote.discoverMovies(page)
                 .map {
                     it.map {
                         item -> movieMapper.mapFromEntity(item)

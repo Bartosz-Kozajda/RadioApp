@@ -8,9 +8,10 @@ import javax.inject.Inject
 
 class MovieService @Inject constructor(
     private val retrofitMovieService: RetrofitMovieService,
-    private val movieEntityMapper: MovieEntityMapper
+    private val movieEntityMapper: MovieEntityMapper,
+    private val apiKey: String
 ) : MovieRemote {
-    override fun discoverMovies(apiKey: String, page: Int): Single<List<MovieEntity>> {
+    override fun discoverMovies(page: Int): Single<List<MovieEntity>> {
         return retrofitMovieService.discoverMovies(apiKey, page).map {
             it.map {
                 item -> movieEntityMapper.mapFromRemote(item)

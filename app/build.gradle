@@ -21,7 +21,7 @@ android {
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -42,9 +42,9 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation appDependencies.kotlin
-    implementation appDependencies.appCompatV7
-    implementation appDependencies.androidAnnotations
-    implementation appDependencies.constraintLayout
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha3'
+    implementation 'androidx.annotation:annotation:1.0.0-alpha3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     implementation appDependencies.rxKotlin
     implementation appDependencies.rxAndroid
     implementation appDependencies.dagger
@@ -56,6 +56,6 @@ dependencies {
     def testDependencies = rootProject.ext.testDependencies
 
     testImplementation  testDependencies.junit
-    androidTestImplementation testDependencies.supportRunner
-    androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
 }

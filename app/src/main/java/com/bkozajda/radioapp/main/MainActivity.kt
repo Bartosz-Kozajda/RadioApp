@@ -1,6 +1,6 @@
 package com.bkozajda.radioapp.main
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bkozajda.presentation.discover.DiscoverMoviesMvp
 import com.bkozajda.presentation.mapper.MovieViewModelMapper

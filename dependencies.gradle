@@ -32,14 +32,14 @@ ext {
     // App
     appDependencies = [
             kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
-            appCompatV7:                "com.android.support:appcompat-v7:${supportLibraryVersion}",
-            constraintLayout:           "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            appCompatV7:                "androidx.appcompat:appcompat:${supportLibraryVersion}",
+            constraintLayout:           "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
             dagger:                     "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
             daggerAndroid:              "com.google.dagger:dagger-android:${daggerVersion}",
             daggerAndroidSupport:       "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerAndroidProcessor:     "com.google.dagger:dagger-android-processor:${daggerVersion}",
-            androidAnnotations:         "com.android.support:support-annotations:${supportLibraryVersion}",
+            androidAnnotations:         "androidx.annotation:annotation:${supportLibraryVersion}",
             rxKotlin:                   "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid:                  "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxInject:                "javax.inject:javax.inject:${javaxInjectVersion}"
@@ -47,8 +47,8 @@ ext {
 
     testDependencies = [
             junit:              "junit:junit:${jUnitVersion}",
-            supportRunner:      "com.android.support.test:runner:${androidSupportRunnerVersion}",
-            espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+            supportRunner:      "androidx.test:runner:${androidSupportRunnerVersion}",
+            espressoCore:       "androidx.test.espresso:espresso-core:${espressoVersion}"
     ]
 
     // Presentation

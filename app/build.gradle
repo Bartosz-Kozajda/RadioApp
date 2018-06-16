@@ -46,9 +46,9 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation appDependencies.kotlin
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha3'
-    implementation 'androidx.annotation:annotation:1.0.0-alpha3'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation appDependencies.appCompatV7
+    implementation appDependencies.androidAnnotations
+    implementation appDependencies.constraintLayout
     implementation appDependencies.rxKotlin
     implementation appDependencies.rxAndroid
     implementation appDependencies.dagger
@@ -60,6 +60,6 @@ dependencies {
     def testDependencies = rootProject.ext.testDependencies
 
     testImplementation  testDependencies.junit
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+    androidTestImplementation testDependencies.supportRunner
+    androidTestImplementation testDependencies.espressoCore
 }

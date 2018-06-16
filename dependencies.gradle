@@ -12,7 +12,7 @@ ext {
     androidCompileSdkVersion = 28
 
     // Libraries
-    supportLibraryVersion = '28.0.0'
+    androidXVersion = '1.0.0-alpha3'
     kotlinVersion = '1.2.0'
     constraintLayoutVersion = '1.1.2'
     gsonVersion = '2.8.0'
@@ -26,20 +26,20 @@ ext {
 
     // Test
     jUnitVersion = '4.12'
-    espressoVersion = '3.0.1'
-    androidSupportRunnerVersion = '1.0.1'
+    espressoVersion = '3.1.0-alpha3'
+    androidSupportRunnerVersion = '1.1.0-alpha3'
 
     // App
     appDependencies = [
             kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
-            appCompatV7:                "androidx.appcompat:appcompat:${supportLibraryVersion}",
+            appCompatV7:                "androidx.appcompat:appcompat:${androidXVersion}",
             constraintLayout:           "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
             dagger:                     "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
             daggerAndroid:              "com.google.dagger:dagger-android:${daggerVersion}",
             daggerAndroidSupport:       "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerAndroidProcessor:     "com.google.dagger:dagger-android-processor:${daggerVersion}",
-            androidAnnotations:         "androidx.annotation:annotation:${supportLibraryVersion}",
+            androidAnnotations:         "androidx.annotation:annotation:${androidXVersion}",
             rxKotlin:                   "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid:                  "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxInject:                "javax.inject:javax.inject:${javaxInjectVersion}"

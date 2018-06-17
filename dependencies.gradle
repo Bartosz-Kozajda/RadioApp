@@ -26,7 +26,6 @@ ext {
     dataBindingCompilerVersion = '3.1.3'
     lifecycleVersion = '1.1.0'
 
-
     // Test
     jUnitVersion = '4.12'
     espressoVersion = '3.0.1'
@@ -54,16 +53,6 @@ ext {
             junit:              "junit:junit:${jUnitVersion}",
             supportRunner:      "com.android.support.test:runner:${androidSupportRunnerVersion}",
             espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoVersion}"
-    ]
-
-    // Presentation
-    presentationDependencies = [
-            kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
-            rxKotlin:                   "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            javaxInject:                "javax.inject:javax.inject:${javaxInjectVersion}",
-            lifecycle:                  "android.arch.lifecycle:extensions:${lifecycleVersion}",
-            viewModel:                  "android.arch.lifecycle:viewmodel:${lifecycleVersion}",
-            liveData:                   "android.arch.lifecycle:livedata:${lifecycleVersion}",
     ]
 
     // Domain

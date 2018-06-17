@@ -1,8 +1,8 @@
 package com.bkozajda.radioapp.di
 
 import com.bkozajda.radioapp.di.scopes.PerActivity
-import com.bkozajda.radioapp.main.MainActivity
-import com.bkozajda.radioapp.main.di.MainActivityModule
+import com.bkozajda.radioapp.presentation.main.MainActivity
+import com.bkozajda.radioapp.presentation.main.di.MainActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

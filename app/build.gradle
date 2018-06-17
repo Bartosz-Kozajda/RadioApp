@@ -24,6 +24,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -50,8 +54,10 @@ dependencies {
     implementation appDependencies.dagger
     implementation appDependencies.daggerAndroidSupport
     implementation appDependencies.javaxInject
+    implementation appDependencies.lifecycle
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
+    annotationProcessor appDependencies.dataBindingCompiler
 
     def testDependencies = rootProject.ext.testDependencies
 

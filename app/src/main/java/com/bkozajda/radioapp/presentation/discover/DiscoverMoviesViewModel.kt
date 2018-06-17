@@ -1,25 +1,21 @@
-package com.bkozajda.presentation.discover
+package com.bkozajda.radioapp.presentation.discover
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import com.bkozajda.presentation.mapper.MovieViewModelMapper
 import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
-class DiscoverMoviesPresenter @Inject constructor(
-    val view: DiscoverMoviesMvp.View,
-    private val discoverMoviesUseCase: DiscoverMoviesUseCase,
-    private val movieViewModelMapper: MovieViewModelMapper
-) : DiscoverMoviesMvp.Presenter {
-    override fun start() {
-        collectMovies()
-    }
+class DiscoverMoviesViewModel @Inject constructor(
+        private val discoverMoviesUseCase: DiscoverMoviesUseCase,
+        private val movieViewModelMapper: MovieViewModelMapper
+): ViewModel() {
 
-    override fun stop() {
-        discoverMoviesUseCase.dispose()
-    }
+    val text = MutableLiveData<String>()
 
-    override fun collectMovies() {
+    fun collectMovies() {
         discoverMoviesUseCase.execute(DiscoverMoviesObserver())
     }
 
@@ -29,7 +25,7 @@ class DiscoverMoviesPresenter @Inject constructor(
         }
 
         override fun onSuccess(movies: List<Movie>) {
-            view.showMovies(movies.map { it -> movieViewModelMapper.mapToView(it) })
+            text.postValue(movies.map { it -> movieViewModelMapper.mapToView(it) }.toString())
         }
     }
 }

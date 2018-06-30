@@ -7,7 +7,6 @@ import com.bkozajda.data.mapper.MovieMapper
 import com.bkozajda.data.repository.MovieDataRepository
 import com.bkozajda.data.repository.MovieRemote
 import com.bkozajda.domain.repository.MovieRepository
-import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.BuildConfig
 import com.bkozajda.radioapp.UiThread
 import com.bkozajda.radioapp.di.scopes.PerApplication
@@ -44,14 +43,6 @@ open class AppModule {
     @Provides
     @PerApplication
     fun provideMovieService(): RetrofitMovieService = RemoteModule.provideMovieService(BuildConfig.API_URL)
-
-    @Provides
-    @PerApplication
-    fun provideDiscoverMoviesUseCase(
-        repository: MovieRepository,
-        threadExecutor: ThreadExecutor,
-        postExecutionThread: PostExecutionThread
-    ): DiscoverMoviesUseCase = DiscoverMoviesUseCase(repository, threadExecutor, postExecutionThread)
 
     @Provides
     @PerApplication

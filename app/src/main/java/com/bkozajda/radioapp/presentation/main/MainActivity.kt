@@ -1,27 +1,27 @@
 package com.bkozajda.radioapp.presentation.main
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.bkozajda.radioapp.R
-import com.bkozajda.radioapp.databinding.ActivityMainBinding
-import com.bkozajda.radioapp.presentation.discover.DiscoverMoviesViewModel
 import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var discoverMoviesViewModel: DiscoverMoviesViewModel
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
-        val binding: ActivityMainBinding? = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding?.let {
-            it.viewModel = discoverMoviesViewModel
-            it.setLifecycleOwner(this)
-        }
-        discoverMoviesViewModel.collectMovies()
+        setContentView(R.layout.activity_main)
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return fragmentInjector
     }
 }

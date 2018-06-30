@@ -8,12 +8,16 @@ import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
 class DiscoverMoviesViewModel @Inject constructor(
-        private val discoverMoviesUseCase: DiscoverMoviesUseCase
-): ViewModel() {
+    private val discoverMoviesUseCase: DiscoverMoviesUseCase
+) : ViewModel() {
 
     val text = MutableLiveData<String>()
 
-    fun collectMovies() {
+    init {
+        collectMovies()
+    }
+
+    private fun collectMovies() {
         discoverMoviesUseCase.execute(DiscoverMoviesObserver())
     }
 

@@ -12,22 +12,34 @@ class DiscoverMoviesViewModel @Inject constructor(
 ) : ViewModel() {
 
     val text = MutableLiveData<String>()
+    val isLoading = MutableLiveData<Boolean>()
 
     init {
         collectMovies()
     }
 
     private fun collectMovies() {
-        discoverMoviesUseCase.execute(DiscoverMoviesObserver())
+        val discoverDisposable = discoverMoviesUseCase
+                .execute()
+                .subscribeWith(object : DisposableSingleObserver<List<Movie>>() {
+                    override fun onStart() {
+                        super.onStart()
+                        isLoading.postValue(true)
+                    }
+                    override fun onSuccess(movies: List<Movie>) {
+                        isLoading.postValue(false)
+                        text.postValue(movies.toString())
+                    }
+                    override fun onError(e: Throwable) {
+                        isLoading.postValue(false)
+                        text.postValue(e.message)
+                    }
+                })
+        discoverMoviesUseCase.addDisposable(discoverDisposable)
     }
 
-    inner class DiscoverMoviesObserver : DisposableSingleObserver<List<Movie>>() {
-        override fun onError(e: Throwable) {
-            System.out.println(e)
-        }
-
-        override fun onSuccess(movies: List<Movie>) {
-            text.postValue(movies.toString())
-        }
+    override fun onCleared() {
+        super.onCleared()
+        discoverMoviesUseCase.dispose()
     }
 }

@@ -35,6 +35,7 @@ ext {
     appDependencies = [
             kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             appCompatV7:                "com.android.support:appcompat-v7:${supportLibraryVersion}",
+            recyclerView:               "com.android.support:recyclerview-v7:${supportLibraryVersion}",
             constraintLayout:           "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             dagger:                     "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",

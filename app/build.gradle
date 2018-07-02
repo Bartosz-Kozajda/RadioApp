@@ -46,6 +46,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation appDependencies.kotlin
     implementation appDependencies.appCompatV7
+    implementation appDependencies.recyclerView
     implementation appDependencies.androidAnnotations
     implementation appDependencies.constraintLayout
     implementation appDependencies.rxKotlin

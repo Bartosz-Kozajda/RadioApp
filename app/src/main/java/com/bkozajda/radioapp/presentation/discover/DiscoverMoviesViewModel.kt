@@ -11,7 +11,7 @@ class DiscoverMoviesViewModel @Inject constructor(
     private val discoverMoviesUseCase: DiscoverMoviesUseCase
 ) : ViewModel() {
 
-    val text = MutableLiveData<String>()
+    val list = MutableLiveData<List<Movie>>()
     val isLoading = MutableLiveData<Boolean>()
 
     init {
@@ -28,11 +28,10 @@ class DiscoverMoviesViewModel @Inject constructor(
                     }
                     override fun onSuccess(movies: List<Movie>) {
                         isLoading.postValue(false)
-                        text.postValue(movies.toString())
+                        list.postValue(movies)
                     }
                     override fun onError(e: Throwable) {
                         isLoading.postValue(false)
-                        text.postValue(e.message)
                     }
                 })
         discoverMoviesUseCase.addDisposable(discoverDisposable)

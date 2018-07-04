@@ -20,7 +20,8 @@ class DiscoverMoviesFragment : Fragment() {
     @Inject
     lateinit var discoverMoviesViewModel: DiscoverMoviesViewModel
 
-    private val adapter: DiscoverMoviesAdapter = DiscoverMoviesAdapter()
+    @Inject
+    lateinit var  adapter: DiscoverMoviesAdapter
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)

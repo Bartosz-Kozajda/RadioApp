@@ -21,7 +21,7 @@ class DiscoverMoviesFragment : Fragment() {
     lateinit var discoverMoviesViewModel: DiscoverMoviesViewModel
 
     @Inject
-    lateinit var  adapter: DiscoverMoviesAdapter
+    lateinit var adapter: DiscoverMoviesAdapter
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)

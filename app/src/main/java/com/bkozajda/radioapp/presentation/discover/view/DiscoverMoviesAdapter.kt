@@ -8,7 +8,7 @@ import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.common.extensions.inflate
 import com.bkozajda.radioapp.databinding.DiscoverItemBinding
 
-class DiscoverMoviesAdapter: RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
+class DiscoverMoviesAdapter : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
 
     val data: MutableList<Movie> = ArrayList()
 
@@ -23,7 +23,7 @@ class DiscoverMoviesAdapter: RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHold
 
     override fun getItemCount(): Int = data.size
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private var binding: DiscoverItemBinding = DiscoverItemBinding.bind(view)
         fun bind(movie: Movie) {
             binding.movie = movie

@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModelProviders
 import com.bkozajda.domain.repository.MovieRepository
 import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.di.scopes.PerFragment
-import com.bkozajda.radioapp.presentation.discover.DiscoverMoviesViewModel
+import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter
 import com.bkozajda.radioapp.presentation.main.MainActivity
 import dagger.Module

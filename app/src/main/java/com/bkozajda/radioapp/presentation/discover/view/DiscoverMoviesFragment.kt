@@ -1,4 +1,4 @@
-package com.bkozajda.radioapp.presentation.discover
+package com.bkozajda.radioapp.presentation.discover.view
 
 import android.content.Context
 import android.databinding.DataBindingUtil
@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.databinding.FragmentDiscoverMoviesBinding
-import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter
+import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_discover_movies.*
 import javax.inject.Inject

@@ -4,7 +4,7 @@ import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +45,7 @@ class DiscoverMoviesFragment : Fragment() {
     }
 
     private fun setupList() {
-        recycler_view.layoutManager = LinearLayoutManager(context)
+        recycler_view.layoutManager = GridLayoutManager(context, 2)
         recycler_view.adapter = adapter
     }
 }

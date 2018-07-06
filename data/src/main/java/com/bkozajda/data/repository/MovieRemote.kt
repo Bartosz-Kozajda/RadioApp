@@ -1,8 +1,8 @@
 package com.bkozajda.data.repository
 
 import com.bkozajda.data.model.MovieEntity
-import io.reactivex.Single
+import io.reactivex.Observable
 
 interface MovieRemote {
-    fun discoverMovies(page: Int): Single<List<MovieEntity>>
+    fun discoverMovies(page: Int): Observable<List<MovieEntity>>
 }

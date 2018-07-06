@@ -4,7 +4,6 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
-import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
 class DiscoverMoviesViewModel @Inject constructor(
@@ -13,6 +12,7 @@ class DiscoverMoviesViewModel @Inject constructor(
 
     val list = MutableLiveData<List<Movie>>()
     val isLoading = MutableLiveData<Boolean>()
+    val errorHappened = MutableLiveData<Boolean>()
 
     init {
         collectMovies()
@@ -21,19 +21,9 @@ class DiscoverMoviesViewModel @Inject constructor(
     private fun collectMovies() {
         val discoverDisposable = discoverMoviesUseCase
                 .execute()
-                .subscribeWith(object : DisposableSingleObserver<List<Movie>>() {
-                    override fun onStart() {
-                        super.onStart()
-                        isLoading.postValue(true)
-                    }
-                    override fun onSuccess(movies: List<Movie>) {
-                        isLoading.postValue(false)
-                        list.postValue(movies)
-                    }
-                    override fun onError(e: Throwable) {
-                        isLoading.postValue(false)
-                    }
-                })
+                .doOnSubscribe { isLoading.value = true }
+                .doFinally { isLoading.value = false }
+                .subscribe({ list.value = it }, { errorHappened.value = true }, { isLoading.value = false })
         discoverMoviesUseCase.addDisposable(discoverDisposable)
     }
 

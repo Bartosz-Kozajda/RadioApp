@@ -1,8 +1,8 @@
 package com.bkozajda.domain.repository
 
 import com.bkozajda.domain.model.Movie
-import io.reactivex.Single
+import io.reactivex.Observable
 
 interface MovieRepository {
-    fun discoverMovies(page: Int): Single<List<Movie>>
+    fun discoverMovies(page: Int): Observable<List<Movie>>
 }

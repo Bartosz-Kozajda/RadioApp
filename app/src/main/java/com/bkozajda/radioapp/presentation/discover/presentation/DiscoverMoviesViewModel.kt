@@ -1,4 +1,4 @@
-package com.bkozajda.radioapp.presentation.discover
+package com.bkozajda.radioapp.presentation.discover.presentation
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel

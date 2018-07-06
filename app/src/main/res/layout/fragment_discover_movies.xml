@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.bkozajda.radioapp.presentation.discover.DiscoverMoviesViewModel" />
+            type="com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel" />
 
         <variable
             name="adapter"

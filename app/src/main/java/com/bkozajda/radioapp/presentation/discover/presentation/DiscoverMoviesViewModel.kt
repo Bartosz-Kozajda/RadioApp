@@ -3,7 +3,7 @@ package com.bkozajda.radioapp.presentation.discover.presentation
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.bkozajda.domain.model.Movie
-import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
+import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import javax.inject.Inject
 
 class DiscoverMoviesViewModel @Inject constructor(

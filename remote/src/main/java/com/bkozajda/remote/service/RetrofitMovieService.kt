@@ -1,8 +1,10 @@
 package com.bkozajda.remote.service
 
+import com.bkozajda.remote.model.DetailedMovieModel
 import com.bkozajda.remote.model.DiscoverModel
 import io.reactivex.Observable
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RetrofitMovieService {
@@ -11,4 +13,10 @@ interface RetrofitMovieService {
         @Query("api_key") apiKey: String,
         @Query("page") page: Int
     ): Observable<DiscoverModel>
+
+    @GET("movie/{movie_id}")
+    fun detailedMovie(
+        @Path("movie_id") page: Int,
+        @Query("api_key") apiKey: String
+    ): Observable<DetailedMovieModel>
 }

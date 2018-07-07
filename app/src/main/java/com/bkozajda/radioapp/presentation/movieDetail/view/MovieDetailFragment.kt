@@ -35,6 +35,6 @@ class MovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieDetailViewModel.id.value = arguments?.getInt("movie_id").toString()
+        movieDetailViewModel.fetchMovie(arguments?.getInt("movie_id") ?: 0)
     }
 }

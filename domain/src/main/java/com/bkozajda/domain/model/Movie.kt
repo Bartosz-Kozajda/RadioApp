@@ -1,6 +1,6 @@
 package com.bkozajda.domain.model
 
-class Movie(
+data class Movie(
     val id: Int,
     val title: String,
     val voteAverage: Double,

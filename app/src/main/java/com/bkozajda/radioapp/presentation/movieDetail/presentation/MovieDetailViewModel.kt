@@ -4,5 +4,5 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 
 class MovieDetailViewModel : ViewModel() {
-    var title = MutableLiveData<String>()
+    var id = MutableLiveData<String>()
 }

@@ -26,6 +26,8 @@ ext {
     dataBindingCompilerVersion = '3.1.3'
     lifecycleVersion = '1.1.0'
     glideVersion = '4.7.1'
+    navigationVersion = '1.0.0-alpha02'
+    androidKTXVersion = "1.0.0-alpha1"
 
     // Test
     jUnitVersion = '4.12'
@@ -50,7 +52,10 @@ ext {
             lifecycle:                  "android.arch.lifecycle:extensions:${lifecycleVersion}",
             dataBindingCompiler:        "com.android.databinding:compiler:${dataBindingCompilerVersion}",
             glide:                      "com.github.bumptech.glide:glide:${glideVersion}",
-            glideCompiler:              "com.github.bumptech.glide:compiler:${glideVersion}"
+            glideCompiler:              "com.github.bumptech.glide:compiler:${glideVersion}",
+            navigationFragment:         "android.arch.navigation:navigation-fragment:${navigationVersion}",
+            navigationUi:               "android.arch.navigation:navigation-ui:${navigationVersion}",
+            androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}"
     ]
 
     testDependencies = [

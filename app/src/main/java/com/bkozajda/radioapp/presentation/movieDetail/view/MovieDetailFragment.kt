@@ -32,4 +32,9 @@ class MovieDetailFragment : Fragment() {
         }
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        movieDetailViewModel.id.value = arguments?.getInt("movie_id").toString()
+    }
 }

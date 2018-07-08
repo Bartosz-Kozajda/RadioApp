@@ -13,7 +13,7 @@ import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailVi
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class MovieDetailFragment : androidx.fragment.app.Fragment() {
+class MovieDetailFragment : Fragment() {
 
     @Inject
     lateinit var movieDetailViewModel: MovieDetailViewModel

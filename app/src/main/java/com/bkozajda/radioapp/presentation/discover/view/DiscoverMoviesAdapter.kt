@@ -28,7 +28,7 @@ class DiscoverMoviesAdapter
 
     override fun getItemCount(): Int = data.size
 
-    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private var binding: DiscoverItemBinding = DiscoverItemBinding.bind(view)
         init {
             view.setOnClickListener {

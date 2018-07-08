@@ -13,7 +13,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<androidx.fragment.app.Fragment>
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         setContentView(R.layout.activity_main)
     }
 
-    override fun supportFragmentInjector(): AndroidInjector<androidx.fragment.app.Fragment> {
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return fragmentInjector
     }
 }

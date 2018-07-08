@@ -45,7 +45,7 @@ class DiscoverMoviesFragment : Fragment() {
     }
 
     private fun setupList() {
-        recycler_view.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
+        recycler_view.layoutManager = GridLayoutManager(context, 2)
         recycler_view.adapter = adapter
     }
 }

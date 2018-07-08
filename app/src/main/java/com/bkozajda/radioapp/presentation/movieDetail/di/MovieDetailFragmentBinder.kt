@@ -14,5 +14,5 @@ abstract class MovieDetailFragmentBinder {
     @IntoMap
     @FragmentKey(MovieDetailFragment::class)
     abstract fun bindMovieDetailFragmentInjectorFactory(builder: MovieDetailFragmentComponent.Builder):
-            AndroidInjector.Factory<out androidx.fragment.app.Fragment>
+            AndroidInjector.Factory<out Fragment>
 }

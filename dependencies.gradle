@@ -13,7 +13,7 @@ ext {
 
     // Libraries
     supportLibraryVersion = '1.0.0-beta01'
-    kotlinVersion = '1.2.41'
+    kotlinVersion = '1.2.51'
     constraintLayoutVersion = '1.1.2'
     gsonVersion = '2.8.0'
     retrofitVersion = '2.3.0'
@@ -36,7 +36,7 @@ ext {
 
     // App
     appDependencies = [
-            kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             appCompatV7:                "androidx.appcompat:appcompat:${supportLibraryVersion}",
             recyclerView:               "androidx.recyclerview:recyclerview:${supportLibraryVersion}",
             constraintLayout:           "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",

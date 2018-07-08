@@ -10,6 +10,8 @@ apply from: '../ktlint.gradle'
 
 apply from: "../config.gradle"
 
+apply plugin: "androidx.navigation.safeargs"
+
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
@@ -58,10 +60,11 @@ dependencies {
     implementation appDependencies.glide
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUi
+    implementation appDependencies.androidKTX
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler
-    annotationProcessor appDependencies.dataBindingCompiler
+    kapt appDependencies.dataBindingCompiler
 
     def testDependencies = rootProject.ext.testDependencies
 

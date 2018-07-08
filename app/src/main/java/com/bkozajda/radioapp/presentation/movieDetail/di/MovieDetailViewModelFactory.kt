@@ -1,7 +1,7 @@
 package com.bkozajda.radioapp.presentation.movieDetail.di
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
 import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModel
 

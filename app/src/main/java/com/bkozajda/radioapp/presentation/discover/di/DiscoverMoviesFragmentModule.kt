@@ -5,7 +5,6 @@ import com.bkozajda.domain.repository.MovieRepository
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.di.scopes.PerFragment
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
-import com.bkozajda.radioapp.presentation.discover.presentation.MovieItemViewModel
 import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter
 import com.bkozajda.radioapp.presentation.main.MainActivity
 import dagger.Module
@@ -38,15 +37,6 @@ open class DiscoverMoviesFragmentModule {
 
     @Provides
     @PerFragment
-    fun provideMovieItemViewModelFactory(): MovieItemViewModelFactory = MovieItemViewModelFactory()
-
-    @Provides
-    @PerFragment
-    fun provideMovieItemViewModel(): MovieItemViewModel = MovieItemViewModel()
-
-    @Provides
-    @PerFragment
     fun provideDiscoverMoviesAdapter(
-        movieItemViewModel: MovieItemViewModel
-    ): DiscoverMoviesAdapter = DiscoverMoviesAdapter(movieItemViewModel)
+    ): DiscoverMoviesAdapter = DiscoverMoviesAdapter()
 }

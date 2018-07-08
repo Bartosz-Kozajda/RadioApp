@@ -20,7 +20,7 @@ open class MovieDetailFragmentModule {
 
     @Provides
     @PerFragment
-    fun provideDiscoverMoviesViewModel(
+    fun provideMovieDetailViewModel(
         activity: MainActivity,
         factory: MovieDetailViewModelFactory
     ): MovieDetailViewModel = ViewModelProviders.of(activity, factory).get(MovieDetailViewModel::class.java)

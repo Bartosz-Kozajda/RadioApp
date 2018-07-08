@@ -9,11 +9,15 @@ class MovieDetailViewModel @Inject constructor(
     private val movieDetailUseCase: MovieDetailUseCase
 ) : ViewModel() {
     var title = MutableLiveData<String>()
+    var posterPath = MutableLiveData<String>()
 
     fun fetchMovie(id: Int) {
         val movieDisposable = movieDetailUseCase
                 .execute(id)
-                .subscribe({ title.value = it.title }, { title.value = "error" }, {})
+                .subscribe({
+                    title.value = it.title
+                    posterPath.value = it.poster_path
+                }, { title.value = "error" }, {})
         movieDetailUseCase.addDisposable(movieDisposable)
     }
 

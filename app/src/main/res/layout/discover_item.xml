@@ -4,17 +4,13 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.bkozajda.radioapp.presentation.discover.presentation.MovieItemViewModel" />
-        <variable
             name="movie"
             type="com.bkozajda.domain.model.Movie" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="@{viewModel::onItemClicked}">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/poster"

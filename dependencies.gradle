@@ -23,7 +23,7 @@ ext {
     rxKotlinVersion = '2.2.0'
     rxAndroidVersion = '2.0.2'
     javaxInjectVersion = '1'
-    dataBindingCompilerVersion = '3.3.0-alpha02'
+    dataBindingCompilerVersion = '3.2.0-beta02'
     lifecycleVersion = '2.0.0-beta01'
     glideVersion = '4.7.1'
     navigationVersion = '1.0.0-alpha02'

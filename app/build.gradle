@@ -64,7 +64,7 @@ dependencies {
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler
-    annotationProcessor appDependencies.dataBindingCompiler
+    kapt appDependencies.dataBindingCompiler
 
     def testDependencies = rootProject.ext.testDependencies
 

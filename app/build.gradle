@@ -56,6 +56,8 @@ dependencies {
     implementation appDependencies.javaxInject
     implementation appDependencies.lifecycle
     implementation appDependencies.glide
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUi
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler

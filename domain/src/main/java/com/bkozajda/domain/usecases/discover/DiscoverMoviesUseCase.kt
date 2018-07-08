@@ -1,4 +1,4 @@
-package com.bkozajda.domain.usecases
+package com.bkozajda.domain.usecases.discover
 
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.repository.MovieRepository

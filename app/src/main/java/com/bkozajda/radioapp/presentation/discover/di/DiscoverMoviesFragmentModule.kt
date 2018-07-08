@@ -2,7 +2,7 @@ package com.bkozajda.radioapp.presentation.discover.di
 
 import android.arch.lifecycle.ViewModelProviders
 import com.bkozajda.domain.repository.MovieRepository
-import com.bkozajda.domain.usecases.DiscoverMoviesUseCase
+import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.di.scopes.PerFragment
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter
@@ -37,5 +37,6 @@ open class DiscoverMoviesFragmentModule {
 
     @Provides
     @PerFragment
-    fun provideDiscoverMoviesAdapter(): DiscoverMoviesAdapter = DiscoverMoviesAdapter()
+    fun provideDiscoverMoviesAdapter(
+    ): DiscoverMoviesAdapter = DiscoverMoviesAdapter()
 }

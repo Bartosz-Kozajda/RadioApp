@@ -1,14 +1,19 @@
 package com.bkozajda.radioapp.presentation.discover.view
 
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.common.extensions.inflate
 import com.bkozajda.radioapp.databinding.DiscoverItemBinding
 
-class DiscoverMoviesAdapter : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
+private const val MOVIE_ID_KEY = "movie_id"
+
+class DiscoverMoviesAdapter
+    : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
 
     val data: MutableList<Movie> = ArrayList()
 
@@ -25,6 +30,15 @@ class DiscoverMoviesAdapter : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHol
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private var binding: DiscoverItemBinding = DiscoverItemBinding.bind(view)
+        init {
+            view.setOnClickListener {
+                binding.movie?.let {
+                    val bundle = Bundle()
+                    bundle.putInt(MOVIE_ID_KEY, it.id)
+                    Navigation.findNavController(view).navigate(R.id.action_discoverMoviesFragment_to_movieDetailFragment, bundle)
+                }
+            }
+        }
         fun bind(movie: Movie) {
             binding.movie = movie
         }

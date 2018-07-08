@@ -1,6 +1,6 @@
 package com.bkozajda.radioapp.presentation.movieDetail.di
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.presentation.movieDetail.view.MovieDetailFragment
 import dagger.Binds
 import dagger.Module
@@ -14,5 +14,5 @@ abstract class MovieDetailFragmentBinder {
     @IntoMap
     @FragmentKey(MovieDetailFragment::class)
     abstract fun bindMovieDetailFragmentInjectorFactory(builder: MovieDetailFragmentComponent.Builder):
-            AndroidInjector.Factory<out Fragment>
+            AndroidInjector.Factory<out androidx.fragment.app.Fragment>
 }

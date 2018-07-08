@@ -1,6 +1,6 @@
 package com.bkozajda.radioapp.presentation.discover.di
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import com.bkozajda.domain.repository.MovieRepository
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.di.scopes.PerFragment

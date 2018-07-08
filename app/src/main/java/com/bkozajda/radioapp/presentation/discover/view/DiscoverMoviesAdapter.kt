@@ -1,10 +1,10 @@
 package com.bkozajda.radioapp.presentation.discover.view
 
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.common.extensions.inflate
@@ -28,7 +28,7 @@ class DiscoverMoviesAdapter
 
     override fun getItemCount(): Int = data.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         private var binding: DiscoverItemBinding = DiscoverItemBinding.bind(view)
         init {
             view.setOnClickListener {

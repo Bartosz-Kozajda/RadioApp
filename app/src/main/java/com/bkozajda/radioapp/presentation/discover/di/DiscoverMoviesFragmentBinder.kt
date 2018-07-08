@@ -1,6 +1,6 @@
 package com.bkozajda.radioapp.presentation.discover.di
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesFragment
 import dagger.Binds
 import dagger.Module

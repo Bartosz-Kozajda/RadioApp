@@ -1,7 +1,7 @@
 package com.bkozajda.radioapp.presentation.movieDetail.presentation
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
 import javax.inject.Inject
 

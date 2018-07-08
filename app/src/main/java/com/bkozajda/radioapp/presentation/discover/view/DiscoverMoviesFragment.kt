@@ -1,10 +1,10 @@
 package com.bkozajda.radioapp.presentation.discover.view
 
 import android.content.Context
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +45,7 @@ class DiscoverMoviesFragment : Fragment() {
     }
 
     private fun setupList() {
-        recycler_view.layoutManager = GridLayoutManager(context, 2)
+        recycler_view.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 2)
         recycler_view.adapter = adapter
     }
 }

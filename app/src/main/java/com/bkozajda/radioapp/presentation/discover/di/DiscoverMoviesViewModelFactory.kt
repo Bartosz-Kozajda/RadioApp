@@ -1,7 +1,7 @@
 package com.bkozajda.radioapp.presentation.discover.di
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 

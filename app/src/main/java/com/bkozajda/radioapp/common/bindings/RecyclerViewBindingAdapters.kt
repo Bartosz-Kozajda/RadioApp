@@ -1,8 +1,8 @@
 package com.bkozajda.radioapp.common.bindings
 
-import android.arch.lifecycle.MutableLiveData
-import android.databinding.BindingAdapter
-import android.support.v7.widget.RecyclerView
+import androidx.lifecycle.MutableLiveData
+import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 @BindingAdapter("adapterData", "modelData")
 fun <T> RecyclerView.bindDataToRecyclerView(adapterData: MutableList<T>, modelData: MutableLiveData<List<T>>) {
@@ -11,6 +11,6 @@ fun <T> RecyclerView.bindDataToRecyclerView(adapterData: MutableList<T>, modelDa
             return
         }
         adapterData.addAll(it)
-        adapter.notifyItemInserted(adapterData.size - 1)
+        adapter?.notifyItemInserted(adapterData.size - 1)
     }
 }

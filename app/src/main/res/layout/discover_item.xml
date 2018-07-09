@@ -6,11 +6,15 @@
         <variable
             name="movie"
             type="com.bkozajda.domain.model.Movie" />
+        <variable
+            name="viewModel"
+            type="com.bkozajda.radioapp.presentation.discover.presentation.DiscoverItemViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(v) -> viewModel.onItemClicked(v, movie)}">
 
         <ImageView
             android:id="@+id/poster"

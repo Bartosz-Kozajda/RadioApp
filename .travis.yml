@@ -22,3 +22,7 @@ cache:
 script:
 - "./gradlew clean build"
 - "./gradlew ktlint"
+notifications:
+  email:
+    on_success: never
+    on_failure: never

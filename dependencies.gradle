@@ -28,6 +28,7 @@ ext {
     glideVersion = '4.7.1'
     navigationVersion = '1.0.0-alpha02'
     androidKTXVersion = "1.0.0-alpha1"
+    koinVersion = '0.9.3'
 
     // Test
     jUnitVersion = '4.12'
@@ -55,7 +56,9 @@ ext {
             glideCompiler:              "com.github.bumptech.glide:compiler:${glideVersion}",
             navigationFragment:         "android.arch.navigation:navigation-fragment:${navigationVersion}",
             navigationUi:               "android.arch.navigation:navigation-ui:${navigationVersion}",
-            androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}"
+            androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}",
+            koin:                       "org.koin:koin-android:${koinVersion}",
+            koinArchComponents:         "org.koin:koin-android-architecture:${koinVersion}"
     ]
 
     testDependencies = [

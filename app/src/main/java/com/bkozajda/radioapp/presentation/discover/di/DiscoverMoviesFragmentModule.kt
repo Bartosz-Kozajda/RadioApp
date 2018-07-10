@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bkozajda.domain.repository.MovieRepository
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.di.scopes.PerFragment
+import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverItemViewModel
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 import com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter
 import com.bkozajda.radioapp.presentation.main.MainActivity
@@ -11,6 +12,8 @@ import dagger.Module
 import dagger.Provides
 import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor
+import org.koin.android.architecture.ext.viewModel
+import org.koin.dsl.module.applicationContext
 
 @Module
 open class DiscoverMoviesFragmentModule {
@@ -37,6 +40,15 @@ open class DiscoverMoviesFragmentModule {
 
     @Provides
     @PerFragment
-    fun provideDiscoverMoviesAdapter(
-    ): DiscoverMoviesAdapter = DiscoverMoviesAdapter()
+    fun provideDiscoverMoviesAdapter(discoverItemViewModel: DiscoverItemViewModel): DiscoverMoviesAdapter = DiscoverMoviesAdapter(discoverItemViewModel)
+
+    @Provides
+    @PerFragment
+    fun provideDiscoverItemViewModel(): DiscoverItemViewModel = DiscoverItemViewModel()
+}
+
+val DiscoverMoviesFragmentModule = applicationContext {
+    factory { DiscoverMoviesUseCase(get(), get(), get()) }
+    factory { DiscoverMoviesViewModelFactory(get()) }
+    viewModel { DiscoverMoviesViewModel(get()) }
 }

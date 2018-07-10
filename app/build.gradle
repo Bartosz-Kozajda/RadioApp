@@ -61,6 +61,8 @@ dependencies {
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUi
     implementation appDependencies.androidKTX
+    implementation appDependencies.koin
+    implementation appDependencies.koinArchComponents
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler

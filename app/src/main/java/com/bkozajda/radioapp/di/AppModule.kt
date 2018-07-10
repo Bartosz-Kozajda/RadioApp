@@ -20,43 +20,11 @@ import dagger.Module
 import dagger.Provides
 import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor
+import org.koin.dsl.module.applicationContext
 
-@Module
-open class AppModule {
 
-    @Provides
-    @PerApplication
-    fun provideContext(application: Application): Context = application
-
-    @Provides
-    @PerApplication
-    fun provideMovieRepository(
-        movieMapper: MovieMapper,
-        detailedMovieMapper: DetailedMovieMapper,
-        movieRemote: MovieRemote
-    ): MovieRepository = MovieDataRepository(movieMapper, detailedMovieMapper, movieRemote)
-
-    @Provides
-    @PerApplication
-    fun provideMovieRemote(
-        service: RetrofitMovieService,
-        movieEntityMapper: MovieEntityMapper,
-        detailedMovieEntityMapper: DetailedMovieEntityMapper
-    ): MovieRemote = MovieService(service, movieEntityMapper, detailedMovieEntityMapper, BuildConfig.API_KEY)
-
-    @Provides
-    @PerApplication
-    fun provideMovieService(): RetrofitMovieService = RemoteModule.provideMovieService(BuildConfig.API_URL)
-
-    @Provides
-    @PerApplication
-    fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
-        return jobExecutor
-    }
-
-    @Provides
-    @PerApplication
-    fun providePostExecutionThread(uiThread: UiThread): PostExecutionThread {
-        return uiThread
-    }
+val AppModule = applicationContext {
+    bean { MovieDataRepository(get(), get(), get()) as MovieRepository }
+    bean { MovieService(get(), get(), get(), BuildConfig.API_KEY) as MovieRemote }
+    bean { RemoteModule.provideMovieService(BuildConfig.API_URL) }
 }

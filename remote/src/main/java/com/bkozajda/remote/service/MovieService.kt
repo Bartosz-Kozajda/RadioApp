@@ -6,9 +6,8 @@ import com.bkozajda.data.repository.MovieRemote
 import com.bkozajda.remote.mapper.DetailedMovieEntityMapper
 import com.bkozajda.remote.mapper.MovieEntityMapper
 import io.reactivex.Observable
-import javax.inject.Inject
 
-class MovieService @Inject constructor(
+class MovieService(
     private val retrofitMovieService: RetrofitMovieService,
     private val movieEntityMapper: MovieEntityMapper,
     private val detailedMovieEntityMapper: DetailedMovieEntityMapper,

@@ -61,6 +61,8 @@ dependencies {
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUi
     implementation appDependencies.androidKTX
+    implementation appDependencies.koin
+    implementation appDependencies.koinArchComponents
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler
@@ -68,7 +70,9 @@ dependencies {
 
     def testDependencies = rootProject.ext.testDependencies
 
-    testImplementation  testDependencies.junit
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.koinTest
+    testImplementation testDependencies.mockito
     androidTestImplementation testDependencies.supportRunner
     androidTestImplementation testDependencies.espressoCore
 }

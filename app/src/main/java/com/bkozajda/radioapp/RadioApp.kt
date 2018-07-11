@@ -1,26 +1,14 @@
 package com.bkozajda.radioapp
 
-import android.app.Activity
 import android.app.Application
-import com.bkozajda.radioapp.di.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import com.bkozajda.radioapp.di.AppModule
+import com.bkozajda.radioapp.presentation.discover.di.DiscoverMoviesFragmentModule
+import com.bkozajda.radioapp.presentation.movieDetail.di.MovieDetailFragmentModule
+import org.koin.android.ext.android.startKoin
 
-class RadioApp : Application(), HasActivityInjector {
-
-    @Inject
-    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
-
+class RadioApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder()
-                .build()
-                .inject(this)
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return activityInjector
+        startKoin(this, listOf(AppModule, DiscoverMoviesFragmentModule, MovieDetailFragmentModule))
     }
 }

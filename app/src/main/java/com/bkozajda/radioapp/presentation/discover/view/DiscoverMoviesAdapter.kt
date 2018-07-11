@@ -9,14 +9,14 @@ import com.bkozajda.radioapp.common.extensions.inflate
 import com.bkozajda.radioapp.databinding.DiscoverItemBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverItemViewModel
 
-class DiscoverMoviesAdapter
+class DiscoverMoviesAdapter(private val itemViewModel: DiscoverItemViewModel)
     : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
 
     val data: MutableList<Movie> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = parent.inflate(R.layout.discover_item, false)
-        return ViewHolder(view)
+        return ViewHolder(view, itemViewModel)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -25,12 +25,12 @@ class DiscoverMoviesAdapter
 
     override fun getItemCount(): Int = data.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, private val itemViewModel: DiscoverItemViewModel) : RecyclerView.ViewHolder(view) {
         private var binding: DiscoverItemBinding = DiscoverItemBinding.bind(view)
 
         fun bind(movie: Movie) {
             binding.movie = movie
-            binding.viewModel = DiscoverItemViewModel()
+            binding.viewModel = itemViewModel
         }
     }
 }

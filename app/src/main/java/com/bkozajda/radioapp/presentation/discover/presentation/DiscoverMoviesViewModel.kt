@@ -4,9 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
-import javax.inject.Inject
 
-class DiscoverMoviesViewModel @Inject constructor(
+class DiscoverMoviesViewModel(
     private val discoverMoviesUseCase: DiscoverMoviesUseCase
 ) : ViewModel() {
 

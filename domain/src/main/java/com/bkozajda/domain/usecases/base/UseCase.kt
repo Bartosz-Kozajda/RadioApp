@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor
 
-abstract class UseCase<T, in Params> constructor(
+abstract class UseCase<T, in Params>(
     private val threadExecutor: ThreadExecutor,
     private val postExecutionThread: PostExecutionThread
 ) {

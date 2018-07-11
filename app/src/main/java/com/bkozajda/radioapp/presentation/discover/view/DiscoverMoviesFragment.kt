@@ -1,32 +1,24 @@
 package com.bkozajda.radioapp.presentation.discover.view
 
-import android.content.Context
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.databinding.FragmentDiscoverMoviesBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
-import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_discover_movies.*
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DiscoverMoviesFragment : Fragment() {
 
-    @Inject
-    lateinit var discoverMoviesViewModel: DiscoverMoviesViewModel
+    val discoverMoviesViewModel: DiscoverMoviesViewModel by viewModel()
 
-    @Inject
-    lateinit var adapter: DiscoverMoviesAdapter
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        AndroidSupportInjection.inject(this)
-    }
+    val adapter: DiscoverMoviesAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentDiscoverMoviesBinding =

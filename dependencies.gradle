@@ -28,7 +28,7 @@ ext {
     glideVersion = '4.7.1'
     navigationVersion = '1.0.0-alpha02'
     androidKTXVersion = "1.0.0-alpha1"
-    koinVersion = '0.9.3'
+    koinVersion = '1.0.0-beta-3'
 
     // Test
     jUnitVersion = '4.12'
@@ -58,13 +58,14 @@ ext {
             navigationUi:               "android.arch.navigation:navigation-ui:${navigationVersion}",
             androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}",
             koin:                       "org.koin:koin-android:${koinVersion}",
-            koinArchComponents:         "org.koin:koin-android-architecture:${koinVersion}"
+            koinArchComponents:         "org.koin:koin-androidx-viewmodel:${koinVersion}"
     ]
 
     testDependencies = [
             junit:              "junit:junit:${jUnitVersion}",
             supportRunner:      "androidx.test:runner:${androidSupportRunnerVersion}",
-            espressoCore:       "androidx.test.espresso:espresso-core:${espressoVersion}"
+            espressoCore:       "androidx.test.espresso:espresso-core:${espressoVersion}",
+            koinTest:           "org.koin:koin-test:${koinVersion}"
     ]
 
     // Domain

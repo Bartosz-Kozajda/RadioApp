@@ -3,9 +3,8 @@ package com.bkozajda.radioapp.presentation.movieDetail.presentation
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
-import javax.inject.Inject
 
-class MovieDetailViewModel @Inject constructor(
+class MovieDetailViewModel constructor(
     private val movieDetailUseCase: MovieDetailUseCase
 ) : ViewModel() {
     var title = MutableLiveData<String>()

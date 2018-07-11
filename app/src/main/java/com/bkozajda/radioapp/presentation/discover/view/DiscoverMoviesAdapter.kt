@@ -8,9 +8,8 @@ import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.common.extensions.inflate
 import com.bkozajda.radioapp.databinding.DiscoverItemBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverItemViewModel
-import javax.inject.Inject
 
-class DiscoverMoviesAdapter @Inject constructor(private val itemViewModel: DiscoverItemViewModel)
+class DiscoverMoviesAdapter(private val itemViewModel: DiscoverItemViewModel)
     : RecyclerView.Adapter<DiscoverMoviesAdapter.ViewHolder>() {
 
     val data: MutableList<Movie> = ArrayList()

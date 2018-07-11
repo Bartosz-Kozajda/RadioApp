@@ -6,9 +6,8 @@ import com.bkozajda.domain.model.DetailedMovie
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.repository.MovieRepository
 import io.reactivex.Observable
-import javax.inject.Inject
 
-class MovieDataRepository @Inject constructor(
+class MovieDataRepository(
     private val movieMapper: MovieMapper,
     private val detailedMovieMapper: DetailedMovieMapper,
     private val movieRemote: MovieRemote

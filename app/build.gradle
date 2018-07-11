@@ -53,9 +53,6 @@ dependencies {
     implementation appDependencies.constraintLayout
     implementation appDependencies.rxKotlin
     implementation appDependencies.rxAndroid
-    implementation appDependencies.dagger
-    implementation appDependencies.daggerAndroidSupport
-    implementation appDependencies.javaxInject
     implementation appDependencies.lifecycle
     implementation appDependencies.glide
     implementation appDependencies.navigationFragment
@@ -63,8 +60,6 @@ dependencies {
     implementation appDependencies.androidKTX
     implementation appDependencies.koin
     implementation appDependencies.koinArchComponents
-    kapt appDependencies.daggerCompiler
-    kapt appDependencies.daggerAndroidProcessor
     kapt appDependencies.glideCompiler
     kapt appDependencies.dataBindingCompiler
 

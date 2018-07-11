@@ -15,5 +15,4 @@ dependencies {
 
     implementation domainDependencies.kotlin
     implementation domainDependencies.rxKotlin
-    implementation domainDependencies.javaxInject
 }

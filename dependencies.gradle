@@ -18,11 +18,9 @@ ext {
     gsonVersion = '2.8.0'
     retrofitVersion = '2.3.0'
     okHttpVersion = '3.8.1'
-    daggerVersion = '2.15'
     rxJavaVersion = '2.1.10'
     rxKotlinVersion = '2.2.0'
     rxAndroidVersion = '2.0.2'
-    javaxInjectVersion = '1'
     dataBindingCompilerVersion = '3.2.0-beta02'
     lifecycleVersion = '2.0.0-beta01'
     glideVersion = '4.7.1'
@@ -42,15 +40,9 @@ ext {
             appCompatV7:                "androidx.appcompat:appcompat:${supportLibraryVersion}",
             recyclerView:               "androidx.recyclerview:recyclerview:${supportLibraryVersion}",
             constraintLayout:           "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
-            dagger:                     "com.google.dagger:dagger:${daggerVersion}",
-            daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
-            daggerAndroid:              "com.google.dagger:dagger-android:${daggerVersion}",
-            daggerAndroidSupport:       "com.google.dagger:dagger-android-support:${daggerVersion}",
-            daggerAndroidProcessor:     "com.google.dagger:dagger-android-processor:${daggerVersion}",
             androidAnnotations:         "com.android.support:support-annotations:${supportLibraryVersion}",
             rxKotlin:                   "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid:                  "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            javaxInject:                "javax.inject:javax.inject:${javaxInjectVersion}",
             lifecycle:                  "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
             dataBindingCompiler:        "androidx.databinding:databinding-compiler:${dataBindingCompilerVersion}",
             glide:                      "com.github.bumptech.glide:glide:${glideVersion}",
@@ -74,14 +66,12 @@ ext {
     domainDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}"
     ]
 
     // Data
     dataDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}"
     ]
 
     // Remote
@@ -94,6 +84,5 @@ ext {
             retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}"
     ]
 }

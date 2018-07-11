@@ -11,7 +11,6 @@ import org.koin.standalone.StandAloneContext.startKoin
 import org.koin.test.KoinTest
 import org.koin.test.dryRun
 
-
 class KoinDryRunTest : KoinTest {
 
     @Before

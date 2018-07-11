@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.databinding.FragmentMovieDetailBinding
 import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModel
+import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModelState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieDetailFragment : Fragment() {
@@ -27,6 +28,8 @@ class MovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieDetailViewModel.fetchMovie(arguments?.getInt("movie_id") ?: 0)
+        when (movieDetailViewModel.state) {
+            is MovieDetailViewModelState.Empty -> movieDetailViewModel.fetchMovie(arguments?.getInt("movie_id") ?: 0)
+        }
     }
 }

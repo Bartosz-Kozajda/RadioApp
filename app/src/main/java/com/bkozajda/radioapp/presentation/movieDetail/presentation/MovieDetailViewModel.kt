@@ -7,10 +7,12 @@ import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
 class MovieDetailViewModel constructor(
     private val movieDetailUseCase: MovieDetailUseCase
 ) : ViewModel() {
+    var state: MovieDetailViewModelState = MovieDetailViewModelState.Empty()
     var title = MutableLiveData<String>()
     var posterPath = MutableLiveData<String>()
 
     fun fetchMovie(id: Int) {
+        state = MovieDetailViewModelState.Loaded()
         val movieDisposable = movieDetailUseCase
                 .execute(id)
                 .subscribe({

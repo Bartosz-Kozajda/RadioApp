@@ -21,8 +21,8 @@ val AppModule = module {
     single { DetailedMovieMapper() }
     single { MovieEntityMapper() }
     single { DetailedMovieEntityMapper() }
-    single { MovieDataRepository(get(), get(), get()) as MovieRepository }
-    single { MovieService(get(), get(), get(), BuildConfig.API_KEY) as MovieRemote }
+    single<MovieRepository> { MovieDataRepository(get(), get(), get()) }
+    single<MovieRemote> { MovieService(get(), get(), get(), BuildConfig.API_KEY) }
     single { RemoteModule.provideMovieService(BuildConfig.API_URL) }
     single<PostExecutionThread> { UiThread() }
     single<ThreadExecutor> { JobExecutor() }

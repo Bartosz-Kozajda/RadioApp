@@ -3,7 +3,6 @@ package com.bkozajda.radioapp.presentation.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bkozajda.radioapp.R
-import dagger.android.AndroidInjection
 
 class MainActivity : AppCompatActivity() {
 

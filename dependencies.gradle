@@ -34,6 +34,7 @@ ext {
     jUnitVersion = '4.12'
     espressoVersion = '3.1.0-alpha3'
     androidSupportRunnerVersion = '1.1.0-alpha3'
+    mockitoVersion = '2.0.0-RC1'
 
     // App
     appDependencies = [
@@ -65,7 +66,8 @@ ext {
             junit:              "junit:junit:${jUnitVersion}",
             supportRunner:      "androidx.test:runner:${androidSupportRunnerVersion}",
             espressoCore:       "androidx.test.espresso:espresso-core:${espressoVersion}",
-            koinTest:           "org.koin:koin-test:${koinVersion}"
+            koinTest:           "org.koin:koin-test:${koinVersion}",
+            mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}"
     ]
 
     // Domain

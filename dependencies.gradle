@@ -27,6 +27,7 @@ ext {
     navigationVersion = '1.0.0-alpha02'
     androidKTXVersion = "1.0.0-alpha1"
     koinVersion = '1.0.0-beta-3'
+    moshiVersion = '1.6.0'
 
     // Test
     jUnitVersion = '4.12'
@@ -77,12 +78,12 @@ ext {
     // Remote
     remoteDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
-            gson:               "com.google.code.gson:gson:${gsonVersion}",
             okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
             okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
             retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-moshi:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            moshi:              "com.squareup.moshi:moshi-kotlin:${moshiVersion}"
     ]
 }

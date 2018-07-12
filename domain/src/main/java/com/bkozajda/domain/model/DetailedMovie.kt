@@ -1,6 +1,6 @@
 package com.bkozajda.domain.model
 
-data class DetailedMovie (
+data class DetailedMovie(
     val adult: Boolean,
     val budget: Int,
     val homepage: String,

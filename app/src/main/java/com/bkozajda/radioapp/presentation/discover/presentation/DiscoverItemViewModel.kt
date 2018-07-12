@@ -6,8 +6,7 @@ import androidx.navigation.Navigation
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.radioapp.R
 
-private const val MOVIE_ID_KEY = "movie_id"
-
+const val MOVIE_ID_KEY = "movie_id"
 class DiscoverItemViewModel {
     fun onItemClicked(view: View, movie: Movie) {
         val bundle = bundleOf(Pair(MOVIE_ID_KEY, movie.id))

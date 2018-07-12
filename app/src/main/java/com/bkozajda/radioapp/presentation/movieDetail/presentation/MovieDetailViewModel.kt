@@ -2,23 +2,32 @@ package com.bkozajda.radioapp.presentation.movieDetail.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bkozajda.domain.model.DetailedMovie
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
 
 class MovieDetailViewModel constructor(
     private val movieDetailUseCase: MovieDetailUseCase
 ) : ViewModel() {
     var state: MovieDetailViewModelState = MovieDetailViewModelState.Empty()
-    var title = MutableLiveData<String>()
-    var posterPath = MutableLiveData<String>()
+    val movie = MutableLiveData<DetailedMovie>()
+    val isLoading = MutableLiveData<Boolean>()
+    val errorHappened = MutableLiveData<Boolean>()
 
-    fun fetchMovie(id: Int) {
-        state = MovieDetailViewModelState.Loaded()
+    fun onStart(id: Int) {
+        when (state) {
+            is MovieDetailViewModelState.Empty -> fetchMovie(id)
+        }
+    }
+
+    private fun fetchMovie(id: Int) {
         val movieDisposable = movieDetailUseCase
                 .execute(id)
-                .subscribe({
-                    title.value = it.title
-                    posterPath.value = it.poster_path
-                }, { title.value = "error" }, {})
+                .doOnSubscribe { isLoading.value = true }
+                .doFinally {
+                    isLoading.value = false
+                    state = MovieDetailViewModelState.Loaded()
+                }
+                .subscribe({ movie.value = it }, { errorHappened.value = true }, { isLoading.value = false })
         movieDetailUseCase.addDisposable(movieDisposable)
     }
 

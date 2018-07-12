@@ -16,8 +16,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DiscoverMoviesFragment : Fragment() {
 
-    val discoverMoviesViewModel: DiscoverMoviesViewModel by viewModel()
-    val adapter: DiscoverMoviesAdapter by inject()
+    private val discoverMoviesViewModel: DiscoverMoviesViewModel by viewModel()
+    private val adapter: DiscoverMoviesAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentDiscoverMoviesBinding =

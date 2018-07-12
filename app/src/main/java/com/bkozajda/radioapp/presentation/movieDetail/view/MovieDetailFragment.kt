@@ -8,13 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.databinding.FragmentMovieDetailBinding
+import com.bkozajda.radioapp.presentation.discover.presentation.MOVIE_ID_KEY
 import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModel
-import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModelState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieDetailFragment : Fragment() {
 
-    val movieDetailViewModel: MovieDetailViewModel by viewModel()
+    private val movieDetailViewModel: MovieDetailViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentMovieDetailBinding =
@@ -28,8 +28,6 @@ class MovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        when (movieDetailViewModel.state) {
-            is MovieDetailViewModelState.Empty -> movieDetailViewModel.fetchMovie(arguments?.getInt("movie_id") ?: 0)
-        }
+        movieDetailViewModel.onStart(arguments?.getInt(MOVIE_ID_KEY) ?: 0)
     }
 }

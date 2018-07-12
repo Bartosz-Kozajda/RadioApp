@@ -9,7 +9,7 @@ import org.koin.dsl.module.module
 
 val DiscoverMoviesFragmentModule = module {
     viewModel { DiscoverMoviesViewModel(get()) }
-    factory { DiscoverMoviesUseCase(get(), get(), get()) }
+    factory { DiscoverMoviesUseCase(get(), get()) }
     factory { DiscoverItemViewModel() }
     factory { DiscoverMoviesAdapter(get()) }
 }

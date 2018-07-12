@@ -7,5 +7,5 @@ import org.koin.dsl.module.module
 
 val MovieDetailFragmentModule = module {
     viewModel { MovieDetailViewModel(get()) }
-    factory { MovieDetailUseCase(get(), get(), get()) }
+    factory { MovieDetailUseCase(get(), get()) }
 }

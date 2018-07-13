@@ -1,32 +1,18 @@
 package com.bkozajda.remote.model
 
-import com.google.gson.annotations.SerializedName
-
 data class MovieModel(
-    @SerializedName("vote_count")
-    val voteCount: Int,
-    @SerializedName("video")
+    val vote_count: Int,
     val video: Boolean,
-    @SerializedName("id")
     val id: Int,
-    @SerializedName("title")
     val title: String,
-    @SerializedName("popularity")
     val popularity: Double,
-    @SerializedName("vote_average")
-    val voteAverage: Double,
-    @SerializedName("poster_path")
-    val posterPath: String,
-    @SerializedName("adult")
+    val vote_average: Double,
+    val poster_path: String?,
     val adult: Boolean,
-    @SerializedName("overview")
     val overview: String,
-    @SerializedName("release_date")
-    val releaseDate: String,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>,
-    @SerializedName("original_title")
-    val originalTitle: String,
-    @SerializedName("original_language")
-    val originalLanguage: String
+    val release_date: String,
+    val genre_ids: List<Int>,
+    val original_title: String,
+    val original_language: String,
+    val backdrop_path: String?
 )

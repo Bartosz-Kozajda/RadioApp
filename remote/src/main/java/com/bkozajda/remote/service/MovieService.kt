@@ -15,7 +15,7 @@ class MovieService(
 ) : MovieRemote {
     override fun discoverMovies(page: Int): Observable<List<MovieEntity>> {
         return retrofitMovieService.discoverMovies(apiKey, page).map {
-            it.movies.map {
+            it.results.map {
                 item -> movieEntityMapper.mapFromRemote(item)
             }
         }

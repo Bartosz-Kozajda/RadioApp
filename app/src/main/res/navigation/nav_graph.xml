@@ -16,13 +16,22 @@
     </fragment>
 
     <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.bkozajda.radioapp.presentation.popular.view.PopularMoviesFragment"
+        android:label="PopularMoviesFragment"
+        tools:layout="@layout/fragment_popular_movies">
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.bkozajda.radioapp.presentation.movieDetail.view.MovieDetailFragment"
         android:label="MovieDetailFragment"
-        tools:layout="@layout/fragment_movie_detail" >
+        tools:layout="@layout/fragment_movie_detail">
         <argument
             android:name="movie_id"
             app:type="integer" />
     </fragment>
-
 </navigation>

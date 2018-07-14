@@ -15,16 +15,25 @@ class MovieDataRepository(
     override fun discoverMovies(page: Int): Observable<List<Movie>> {
         return movieRemote.discoverMovies(page)
                 .map {
-                    it.map {
-                        item -> movieMapper.mapFromEntity(item)
+                    it.map { item ->
+                        movieMapper.mapFromEntity(item)
+                    }
+                }
+    }
+
+    override fun popularMovies(page: Int): Observable<List<Movie>> {
+        return movieRemote.popularMovies(page)
+                .map {
+                    it.map { item ->
+                        movieMapper.mapFromEntity(item)
                     }
                 }
     }
 
     override fun detailedMovie(movieId: Int): Observable<DetailedMovie> {
         return movieRemote.detailedMovie(movieId)
-                .map {
-                    it -> detailedMovieMapper.mapFromEntity(it)
+                .map { it ->
+                    detailedMovieMapper.mapFromEntity(it)
                 }
     }
 }

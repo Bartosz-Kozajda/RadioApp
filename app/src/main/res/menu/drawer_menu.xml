@@ -6,8 +6,8 @@
             android:icon="@drawable/ic_discover"
             android:title="@string/discover" />
         <item
-            android:id="@id/discoverMoviesFragment"
-            android:icon="@drawable/ic_discover"
-            android:title="@string/discover" />
+            android:id="@id/popularMoviesFragment"
+            android:icon="@drawable/ic_popular"
+            android:title="@string/popular" />
     </group>
 </menu>

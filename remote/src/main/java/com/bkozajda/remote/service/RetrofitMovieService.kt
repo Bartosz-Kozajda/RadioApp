@@ -2,6 +2,7 @@ package com.bkozajda.remote.service
 
 import com.bkozajda.remote.model.DetailedMovieModel
 import com.bkozajda.remote.model.DiscoverModel
+import com.bkozajda.remote.model.PopularModel
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,6 +14,12 @@ interface RetrofitMovieService {
         @Query("api_key") apiKey: String,
         @Query("page") page: Int
     ): Observable<DiscoverModel>
+
+    @GET("movie/popular")
+    fun popularMovies(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: Int
+    ): Observable<PopularModel>
 
     @GET("movie/{movie_id}")
     fun detailedMovie(

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">XOXO</string>
     <string name="something_went_wrong_try_again_later">Something went wrong! Try again later!</string>
+    <string name="discover">Discover</string>
 </resources>

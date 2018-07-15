@@ -6,5 +6,6 @@ import io.reactivex.Observable
 
 interface MovieRemote {
     fun discoverMovies(page: Int): Observable<List<MovieEntity>>
+    fun popularMovies(page: Int): Observable<List<MovieEntity>>
     fun detailedMovie(movieId: Int): Observable<DetailedMovieEntity>
 }

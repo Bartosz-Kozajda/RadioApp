@@ -49,7 +49,7 @@ ext {
             glide:                      "com.github.bumptech.glide:glide:${glideVersion}",
             glideCompiler:              "com.github.bumptech.glide:compiler:${glideVersion}",
             navigationFragment:         "android.arch.navigation:navigation-fragment:${navigationVersion}",
-            navigationUi:               "android.arch.navigation:navigation-ui:${navigationVersion}",
+            navigationUi:               "android.arch.navigation:navigation-ui-ktx:${navigationVersion}",
             androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}",
             koin:                       "org.koin:koin-android:${koinVersion}",
             koinArchComponents:         "org.koin:koin-androidx-viewmodel:${koinVersion}"

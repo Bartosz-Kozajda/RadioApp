@@ -2,7 +2,8 @@ package com.bkozajda.radioapp.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.presentation.main.presentation.MainActivityViewModel
@@ -16,18 +17,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val host: NavHostFragment = supportFragmentManager
-                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
+        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setSupportActionBar(toolbar)
-        setupNavigationDrawer(host)
-        setupNavigationView(host)
+        setupNavigationDrawer(navController)
+        setupNavigationView(navController)
     }
 
-    private fun setupNavigationDrawer(host: NavHostFragment) {
-        NavigationUI.setupWithNavController(toolbar, host.navController, drawer_layout)
+    private fun setupNavigationDrawer(navController: NavController) {
+        NavigationUI.setupWithNavController(toolbar, navController, drawer_layout)
     }
 
-    private fun setupNavigationView(host: NavHostFragment) {
-        NavigationUI.setupWithNavController(nav_view, host.navController)
+    private fun setupNavigationView(navController: NavController) {
+        NavigationUI.setupWithNavController(nav_view, navController)
     }
 }

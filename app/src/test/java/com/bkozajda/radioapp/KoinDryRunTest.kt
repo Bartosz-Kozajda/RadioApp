@@ -4,6 +4,7 @@ import com.bkozajda.radioapp.di.AppModule
 import com.bkozajda.radioapp.presentation.discover.di.DiscoverMoviesFragmentModule
 import com.bkozajda.radioapp.presentation.main.di.MainActivityModule
 import com.bkozajda.radioapp.presentation.movieDetail.di.MovieDetailFragmentModule
+import com.bkozajda.radioapp.presentation.popular.di.PopularMoviesFragmentModule
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before
@@ -21,7 +22,11 @@ class KoinDryRunTest : KoinTest {
 
     @Test
     fun `dryRun module`() {
-        startKoin(listOf(AppModule, MainActivityModule, DiscoverMoviesFragmentModule, MovieDetailFragmentModule))
+        startKoin(listOf(AppModule,
+                MainActivityModule,
+                DiscoverMoviesFragmentModule,
+                PopularMoviesFragmentModule,
+                MovieDetailFragmentModule))
         dryRun()
     }
 }

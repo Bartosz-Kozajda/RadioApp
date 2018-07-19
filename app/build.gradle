@@ -61,7 +61,6 @@ dependencies {
     implementation appDependencies.koin
     implementation appDependencies.koinArchComponents
     kapt appDependencies.glideCompiler
-    kapt appDependencies.dataBindingCompiler
 
     def testDependencies = rootProject.ext.testDependencies
 

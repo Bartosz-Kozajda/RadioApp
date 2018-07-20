@@ -69,19 +69,19 @@ ext {
 
     // Domain
     domainDependencies = [
-            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
     ]
 
     // Data
     dataDependencies = [
-            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
     ]
 
     // Remote
     remoteDependencies = [
-            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
             okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
             retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",

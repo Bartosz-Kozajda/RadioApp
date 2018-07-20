@@ -1,6 +1,5 @@
-package com.bkozajda.radioapp
+package com.bkozajda.radioapp.di
 
-import com.bkozajda.radioapp.di.AppModule
 import com.bkozajda.radioapp.presentation.discover.di.DiscoverMoviesFragmentModule
 import com.bkozajda.radioapp.presentation.main.di.MainActivityModule
 import com.bkozajda.radioapp.presentation.movieDetail.di.MovieDetailFragmentModule

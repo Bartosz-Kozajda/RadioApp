@@ -26,7 +26,7 @@ class PopularMoviesViewModel(
         popularMoviesUseCase.addDisposable(discoverDisposable)
     }
 
-    override fun onCleared() {
+    public override fun onCleared() {
         super.onCleared()
         popularMoviesUseCase.dispose()
     }

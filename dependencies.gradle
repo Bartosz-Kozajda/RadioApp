@@ -1,5 +1,6 @@
 allprojects {
     repositories {
+        google()
         jcenter()
     }
 }
@@ -24,7 +25,7 @@ ext {
     dataBindingCompilerVersion = '3.2.0-beta02'
     lifecycleVersion = '2.0.0-beta01'
     glideVersion = '4.7.1'
-    navigationVersion = '1.0.0-alpha03'
+    navigationVersion = '1.0.0-alpha04'
     androidKTXVersion = "1.0.0-alpha1"
     koinVersion = '1.0.0-beta-3'
     moshiVersion = '1.6.0'
@@ -49,7 +50,10 @@ ext {
             glide:                      "com.github.bumptech.glide:glide:${glideVersion}",
             glideCompiler:              "com.github.bumptech.glide:compiler:${glideVersion}",
             navigationFragment:         "android.arch.navigation:navigation-fragment:${navigationVersion}",
-            navigationUi:               "android.arch.navigation:navigation-ui-ktx:${navigationVersion}",
+            navigationFragmentKtx:      "android.arch.navigation:navigation-fragment-ktx:${navigationVersion}",
+            navigationCommonKtx:        "android.arch.navigation:navigation-common-ktx:${navigationVersion}",
+            navigationUi:               "android.arch.navigation:navigation-ui:${navigationVersion}",
+            navigationUiKtx:            "android.arch.navigation:navigation-ui-ktx:${navigationVersion}",
             androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}",
             koin:                       "org.koin:koin-android:${koinVersion}",
             koinArchComponents:         "org.koin:koin-androidx-viewmodel:${koinVersion}"

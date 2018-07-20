@@ -55,9 +55,12 @@ dependencies {
     implementation appDependencies.rxAndroid
     implementation appDependencies.lifecycle
     implementation appDependencies.glide
+    implementation appDependencies.androidKTX
+    implementation appDependencies.navigationCommonKtx
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUi
-    implementation appDependencies.androidKTX
+    implementation appDependencies.navigationUiKtx
+    implementation appDependencies.navigationFragmentKtx
     implementation appDependencies.koin
     implementation appDependencies.koinArchComponents
     kapt appDependencies.glideCompiler

@@ -70,6 +70,8 @@ dependencies {
     testImplementation testDependencies.junit
     testImplementation testDependencies.koinTest
     testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
+    testImplementation testDependencies.liveDataTest
     androidTestImplementation testDependencies.supportRunner
     androidTestImplementation testDependencies.espressoCore
 }

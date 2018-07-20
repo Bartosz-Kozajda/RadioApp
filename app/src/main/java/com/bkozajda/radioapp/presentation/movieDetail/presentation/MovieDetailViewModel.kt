@@ -31,7 +31,7 @@ class MovieDetailViewModel constructor(
         movieDetailUseCase.addDisposable(movieDisposable)
     }
 
-    override fun onCleared() {
+    public override fun onCleared() {
         super.onCleared()
         movieDetailUseCase.dispose()
     }

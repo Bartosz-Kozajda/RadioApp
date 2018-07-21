@@ -7,7 +7,7 @@ allprojects {
 
 ext {
     // Android
-    androidBuildToolsVersion = "27.1.1"
+    androidBuildToolsVersion = "28.0.1"
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 28
     androidCompileSdkVersion = 28
@@ -92,5 +92,10 @@ ext {
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             moshi:              "com.squareup.moshi:moshi-kotlin:${moshiVersion}"
+    ]
+
+    // Cache
+    cacheDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
     ]
 }

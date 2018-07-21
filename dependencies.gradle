@@ -29,6 +29,7 @@ ext {
     androidKTXVersion = "1.0.0-alpha1"
     koinVersion = '1.0.0-beta-3'
     moshiVersion = '1.6.0'
+    roomVersion = '2.0.0-beta01'
 
     // Test
     jUnitVersion = '4.12'
@@ -67,7 +68,8 @@ ext {
             koinTest:           "org.koin:koin-test:${koinVersion}",
             mockito:            "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
             kluent:             "org.amshove.kluent:kluent-android:${kluentVersion}",
-            liveDataTest:       "androidx.arch.core:core-testing:${lifecycleVersion}"
+            liveDataTest:       "androidx.arch.core:core-testing:${lifecycleVersion}",
+            roomTest:           "androidx.room:room-compiler:${roomVersion}"
     ]
 
     // Domain
@@ -96,6 +98,10 @@ ext {
 
     // Cache
     cacheDependencies = [
-            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            room:               "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler:       "androidx.room:room-compiler:${roomVersion}",
+            roomRxSupport:      "androidx.room:room-rxjava2:${roomVersion}"
     ]
 }

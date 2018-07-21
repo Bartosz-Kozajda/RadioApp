@@ -31,4 +31,15 @@ dependencies {
     def cacheDependencies = rootProject.ext.cacheDependencies
 
     implementation cacheDependencies.kotlin
+    implementation cacheDependencies.rxKotlin
+    implementation cacheDependencies.room
+    implementation cacheDependencies.roomRxSupport
+    kapt cacheDependencies.roomCompiler
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
+    testImplementation testDependencies.roomTest
 }

@@ -93,7 +93,10 @@ ext {
             retrofitConverter:  "com.squareup.retrofit2:converter-moshi:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            moshi:              "com.squareup.moshi:moshi-kotlin:${moshiVersion}"
+            moshi:              "com.squareup.moshi:moshi-kotlin:${moshiVersion}",
+            room:               "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler:       "androidx.room:room-compiler:${roomVersion}",
+            roomRxSupport:      "androidx.room:room-rxjava2:${roomVersion}"
     ]
 
     // Cache

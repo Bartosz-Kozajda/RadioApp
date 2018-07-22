@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
+    implementation project(':remote')
+
     def cacheDependencies = rootProject.ext.cacheDependencies
 
     implementation cacheDependencies.kotlin

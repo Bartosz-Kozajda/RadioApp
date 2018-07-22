@@ -23,4 +23,7 @@ dependencies {
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
     implementation remoteDependencies.moshi
+    implementation remoteDependencies.room
+    implementation remoteDependencies.roomRxSupport
+    kapt remoteDependencies.roomCompiler
 }

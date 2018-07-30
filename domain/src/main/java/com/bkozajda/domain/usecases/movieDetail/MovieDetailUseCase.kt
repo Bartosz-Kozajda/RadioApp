@@ -10,7 +10,10 @@ class MovieDetailUseCase(
     private val movieRepository: MovieRepository,
     postExecutionThread: PostExecutionThread
 ) : UseCase<DetailedMovie, Int>(postExecutionThread) {
-    override fun buildUseCaseObservable(params: Int?): Observable<DetailedMovie> {
+    suspend fun exec(params: Int?): DetailedMovie {
         return movieRepository.detailedMovie(params!!)
+    }
+    override fun buildUseCaseObservable(params: Int?): Observable<DetailedMovie> {
+        return Observable.empty()
     }
 }

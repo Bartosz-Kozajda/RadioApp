@@ -29,6 +29,8 @@ ext {
     androidKTXVersion = "1.0.0-alpha1"
     koinVersion = '1.0.0-beta-3'
     moshiVersion = '1.6.0'
+    kotlinCoroutinesVersion = '0.23.4'
+    retrofitCoroutinesAdapterVersion = '1.0.0'
 
     // Test
     jUnitVersion = '4.12'
@@ -57,7 +59,8 @@ ext {
             navigationUiKtx:            "android.arch.navigation:navigation-ui-ktx:${navigationVersion}",
             androidKTX:                 "androidx.core:core-ktx:${androidKTXVersion}",
             koin:                       "org.koin:koin-android:${koinVersion}",
-            koinArchComponents:         "org.koin:koin-androidx-viewmodel:${koinVersion}"
+            koinArchComponents:         "org.koin:koin-androidx-viewmodel:${koinVersion}",
+            coroutines:                 "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutinesVersion}"
     ]
 
     testDependencies = [
@@ -80,6 +83,7 @@ ext {
     dataDependencies = [
             kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            coroutines:         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutinesVersion}"
     ]
 
     // Remote
@@ -90,6 +94,7 @@ ext {
             retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter:  "com.squareup.retrofit2:converter-moshi:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            retrofitCoroutinesAdapter:  "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:${retrofitCoroutinesAdapterVersion}",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             moshi:              "com.squareup.moshi:moshi-kotlin:${moshiVersion}"
     ]

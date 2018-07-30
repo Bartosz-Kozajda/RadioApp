@@ -10,7 +10,10 @@ class PopularMoviesUseCase(
     private val movieRepository: MovieRepository,
     postExecutionThread: PostExecutionThread
 ) : UseCase<List<Movie>, Int>(postExecutionThread) {
-    override fun buildUseCaseObservable(params: Int?): Observable<List<Movie>> {
+    suspend fun exec(params: Int?): List<Movie> {
         return movieRepository.popularMovies(params ?: 2)
+    }
+    override fun buildUseCaseObservable(params: Int?): Observable<List<Movie>> {
+        return Observable.empty()
     }
 }

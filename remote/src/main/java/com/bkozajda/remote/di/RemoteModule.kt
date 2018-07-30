@@ -1,11 +1,11 @@
 package com.bkozajda.remote.di
 
 import com.bkozajda.remote.service.RetrofitMovieService
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RemoteModule {
@@ -18,7 +18,7 @@ object RemoteModule {
         val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(okHttpClient)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .build()
         return retrofit.create(RetrofitMovieService::class.java)

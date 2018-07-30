@@ -5,7 +5,6 @@ import com.bkozajda.data.model.MovieEntity
 import com.bkozajda.data.repository.MovieRemote
 import com.bkozajda.remote.mapper.DetailedMovieEntityMapper
 import com.bkozajda.remote.mapper.MovieEntityMapper
-import io.reactivex.Observable
 
 class MovieService(
     private val retrofitMovieService: RetrofitMovieService,
@@ -13,25 +12,22 @@ class MovieService(
     private val detailedMovieEntityMapper: DetailedMovieEntityMapper,
     private val apiKey: String
 ) : MovieRemote {
-    override fun discoverMovies(page: Int): Observable<List<MovieEntity>> {
-        return retrofitMovieService.discoverMovies(apiKey, page).map {
-            it.results.map {
-                item -> movieEntityMapper.mapFromRemote(item)
-            }
+    override suspend fun discoverMovies(page: Int): List<MovieEntity> {
+        val result = retrofitMovieService.discoverMovies(apiKey, page)
+        return result.await().results.map {
+            item -> movieEntityMapper.mapFromRemote(item)
         }
     }
 
-    override fun popularMovies(page: Int): Observable<List<MovieEntity>> {
-        return retrofitMovieService.popularMovies(apiKey, page).map {
-            it.results.map {
-                item -> movieEntityMapper.mapFromRemote(item)
-            }
+    override suspend fun popularMovies(page: Int): List<MovieEntity> {
+        val result = retrofitMovieService.popularMovies(apiKey, page)
+        return result.await().results.map {
+            item -> movieEntityMapper.mapFromRemote(item)
         }
     }
 
-    override fun detailedMovie(movieId: Int): Observable<DetailedMovieEntity> {
-        return retrofitMovieService.detailedMovie(movieId, apiKey).map {
-            it -> detailedMovieEntityMapper.mapFromRemote(it)
-        }
+    override suspend fun detailedMovie(movieId: Int): DetailedMovieEntity {
+        val result = retrofitMovieService.detailedMovie(movieId, apiKey)
+        return detailedMovieEntityMapper.mapFromRemote(result.await())
     }
 }

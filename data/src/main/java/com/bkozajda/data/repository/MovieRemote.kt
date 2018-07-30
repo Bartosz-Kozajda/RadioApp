@@ -2,10 +2,9 @@ package com.bkozajda.data.repository
 
 import com.bkozajda.data.model.DetailedMovieEntity
 import com.bkozajda.data.model.MovieEntity
-import io.reactivex.Observable
 
 interface MovieRemote {
-    fun discoverMovies(page: Int): Observable<List<MovieEntity>>
-    fun popularMovies(page: Int): Observable<List<MovieEntity>>
-    fun detailedMovie(movieId: Int): Observable<DetailedMovieEntity>
+    suspend fun discoverMovies(page: Int): List<MovieEntity>
+    suspend fun popularMovies(page: Int): List<MovieEntity>
+    suspend fun detailedMovie(movieId: Int): DetailedMovieEntity
 }

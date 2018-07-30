@@ -63,6 +63,7 @@ dependencies {
     implementation appDependencies.navigationFragmentKtx
     implementation appDependencies.koin
     implementation appDependencies.koinArchComponents
+    implementation appDependencies.coroutines
     kapt appDependencies.glideCompiler
 
     def testDependencies = rootProject.ext.testDependencies

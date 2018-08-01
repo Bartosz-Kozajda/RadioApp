@@ -29,7 +29,6 @@ class PopularMoviesViewModel(
                 .doFinally { isLoading.value = false }
                 .subscribe({ list.value = it }, { errorHappened.value = true }, { isLoading.value = false })
         popularMoviesUseCase.addDisposable(discoverDisposable)*/
-
         launch(CommonPool, parent = root) {
             try {
                 isLoading.postValue(true)

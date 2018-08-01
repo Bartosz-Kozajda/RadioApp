@@ -38,7 +38,7 @@ class MovieDetailViewModel constructor(
         launch(CommonPool, parent = root) {
             try {
                 isLoading.postValue(true)
-                val result = movieDetailUseCase.exec(1)
+                val result = movieDetailUseCase.exec(id)
                 movie.postValue(result)
             } catch (e: Exception) {
                 errorHappened.postValue(true)

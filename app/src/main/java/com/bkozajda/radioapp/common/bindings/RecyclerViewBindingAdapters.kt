@@ -1,16 +1,13 @@
 package com.bkozajda.radioapp.common.bindings
 
-import androidx.lifecycle.MutableLiveData
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bkozajda.radioapp.common.views.RecyclerViewAdapter
 
-@BindingAdapter("adapterData", "modelData")
-fun <T> RecyclerView.bindDataToRecyclerView(adapterData: MutableList<T>, modelData: MutableLiveData<List<T>>) {
-    modelData.value?.let {
-        if (adapterData == it) {
-            return
-        }
-        adapterData.addAll(it)
-        adapter?.notifyItemInserted(adapterData.size - 1)
+@BindingAdapter("adapter", "data")
+fun <T> RecyclerView.bindDataToRecyclerView(adapter: RecyclerViewAdapter<T>, data: MutableLiveData<List<T>>) {
+    data.value?.let {
+        adapter.updateData(it)
     }
 }

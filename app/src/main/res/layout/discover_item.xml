@@ -4,7 +4,7 @@
 
     <data>
         <variable
-            name="movie"
+            name="item"
             type="com.bkozajda.domain.model.Movie" />
         <variable
             name="viewModel"
@@ -14,15 +14,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(v) -> viewModel.onItemClicked(v, movie)}">
+        android:onClick="@{(v) -> viewModel.onItemClicked(v, item)}">
 
         <ImageView
             android:id="@+id/poster"
             android:layout_width="0dp"
             android:layout_height="@dimen/poster_image_height"
-            android:contentDescription="@{movie.title}"
+            android:contentDescription="@{item.title}"
             android:scaleType="centerCrop"
-            app:image="@{movie.posterPath}"
+            app:image="@{item.posterPath}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:background="@color/transparentBlack"
             android:maxLines="1"
             android:padding="8dp"
-            android:text="@{movie.title}"
+            android:text="@{item.title}"
             android:textColor="@android:color/white"
             android:textSize="@dimen/title_text_size"
             android:textStyle="bold"

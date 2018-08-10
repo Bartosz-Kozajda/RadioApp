@@ -5,9 +5,10 @@ import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.radioapp.R
+import com.bkozajda.radioapp.common.viewmodels.ItemViewModel
 
 const val MOVIE_ID_KEY = "movie_id"
-class PopularItemViewModel {
+class PopularItemViewModel : ItemViewModel() {
     fun onItemClicked(view: View, movie: Movie) {
         val bundle = bundleOf(Pair(MOVIE_ID_KEY, movie.id))
         Navigation.findNavController(view)

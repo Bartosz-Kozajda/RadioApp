@@ -7,14 +7,14 @@ allprojects {
 
 ext {
     // Android
-    androidBuildToolsVersion = "27.1.1"
+    androidBuildToolsVersion = "28.0.1"
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 28
     androidCompileSdkVersion = 28
 
     // Libraries
     supportLibraryVersion = '1.0.0-beta01'
-    kotlinVersion = '1.2.51'
+    kotlinVersion = '1.2.61'
     constraintLayoutVersion = '1.1.2'
     gsonVersion = '2.8.0'
     retrofitVersion = '2.3.0'

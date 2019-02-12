@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.R
 import com.bkozajda.radioapp.databinding.FragmentMovieDetailBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.MOVIE_ID_KEY
 import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieDetailFragment : Fragment() {
@@ -28,6 +30,7 @@ class MovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         movieDetailViewModel.onStart(arguments?.getInt(MOVIE_ID_KEY) ?: 0)
     }
 }

@@ -7,6 +7,6 @@ open class DetailedMovieEntityMapper : EntityMapper<DetailedMovieModel, Detailed
     override fun mapFromRemote(type: DetailedMovieModel): DetailedMovieEntity {
         val posterPath = "https://image.tmdb.org/t/p/w500${type.poster_path}"
         return DetailedMovieEntity(type.adult, type.budget, type.homepage, type.original_title, type.overview,
-                posterPath, type.release_date, type.title, type.vote_average)
+                posterPath, type.release_date, type.title, type.vote_average, type.genres.map { it.name }, type.popularity)
     }
 }

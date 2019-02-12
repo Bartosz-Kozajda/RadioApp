@@ -19,6 +19,10 @@ class MovieDetailViewModel constructor(
         }
     }
 
+    fun onCloseButtonClicked() {
+        // TODO: implement
+    }
+
     private fun fetchMovie(id: Int) {
         val movieDisposable = movieDetailUseCase
                 .execute(id)

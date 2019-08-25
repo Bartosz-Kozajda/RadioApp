@@ -56,7 +56,6 @@ dependencies {
     implementation appDependencies.lifecycle
     implementation appDependencies.glide
     implementation appDependencies.androidKTX
-    implementation appDependencies.navigationCommonKtx
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUi
     implementation appDependencies.navigationUiKtx

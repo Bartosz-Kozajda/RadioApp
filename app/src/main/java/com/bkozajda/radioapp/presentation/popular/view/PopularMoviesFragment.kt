@@ -19,13 +19,17 @@ class PopularMoviesFragment : Fragment() {
     private val popularMoviesViewModel: PopularMoviesViewModel by viewModel()
     private val adapter: PopularMoviesAdapter by inject()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding: FragmentPopularMoviesBinding =
-                DataBindingUtil.inflate(inflater, R.layout.fragment_popular_movies, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_popular_movies, container, false)
         binding.let {
             it.viewModel = popularMoviesViewModel
             it.adapter = adapter
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
         return binding.root
     }

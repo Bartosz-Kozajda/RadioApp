@@ -6,6 +6,6 @@ import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val MovieDetailFragmentModule = module {
-    viewModel { MovieDetailViewModel(get()) }
-    factory { MovieDetailUseCase(get(), get()) }
+    viewModel { MovieDetailViewModel(get(), get()) }
+    factory { MovieDetailUseCase(get()) }
 }

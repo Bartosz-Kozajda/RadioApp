@@ -19,13 +19,17 @@ class DiscoverMoviesFragment : Fragment() {
     private val discoverMoviesViewModel: DiscoverMoviesViewModel by viewModel()
     private val adapter: DiscoverMoviesAdapter by inject()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding: FragmentDiscoverMoviesBinding =
-                DataBindingUtil.inflate(inflater, R.layout.fragment_discover_movies, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_discover_movies, container, false)
         binding.let {
             it.viewModel = discoverMoviesViewModel
             it.adapter = adapter
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
         return binding.root
     }

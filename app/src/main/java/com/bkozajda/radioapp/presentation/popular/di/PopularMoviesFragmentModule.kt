@@ -8,8 +8,8 @@ import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val PopularMoviesFragmentModule = module {
-    viewModel { PopularMoviesViewModel(get()) }
-    factory { PopularMoviesUseCase(get(), get()) }
+    viewModel { PopularMoviesViewModel(get(), get()) }
+    factory { PopularMoviesUseCase(get()) }
     factory { PopularItemViewModel() }
     factory { PopularMoviesAdapter(get()) }
 }

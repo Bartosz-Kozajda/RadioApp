@@ -16,12 +16,16 @@ class MovieDetailFragment : Fragment() {
 
     private val movieDetailViewModel: MovieDetailViewModel by viewModel()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding: FragmentMovieDetailBinding =
-                DataBindingUtil.inflate(inflater, R.layout.fragment_movie_detail, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_movie_detail, container, false)
         binding.let {
             it.viewModel = movieDetailViewModel
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
         return binding.root
     }

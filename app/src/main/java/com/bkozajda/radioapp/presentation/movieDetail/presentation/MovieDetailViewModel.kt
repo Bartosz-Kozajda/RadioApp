@@ -15,6 +15,7 @@ class MovieDetailViewModel constructor(
     private val schedulers: RxSchedulers
 ) : LifecycleViewModel() {
 
+    // TODO: provide movie id via constructor
     var movieId: Int = 0
 
     val state = MutableLiveData<ViewModelState>()

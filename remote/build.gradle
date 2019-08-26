@@ -23,4 +23,10 @@ dependencies {
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
     implementation remoteDependencies.moshi
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }

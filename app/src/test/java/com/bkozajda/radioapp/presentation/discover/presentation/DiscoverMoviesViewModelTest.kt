@@ -3,75 +3,52 @@ package com.bkozajda.radioapp.presentation.discover.presentation
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.usecases.discover.DiscoverMoviesUseCase
 import com.bkozajda.radioapp.common.BaseViewModelTest
+import com.bkozajda.radioapp.common.TestRxSchedulers
+import com.bkozajda.radioapp.common.state.ViewModelState.Error
+import com.bkozajda.radioapp.common.state.ViewModelState.Loaded
+import com.bkozajda.radioapp.common.state.ViewModelState.Loading
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.Single
 import org.amshove.kluent.shouldEqual
-import org.junit.Before
 import org.junit.Test
 
 class DiscoverMoviesViewModelTest : BaseViewModelTest() {
 
-    val discoverMoviesUseCase: DiscoverMoviesUseCase = mock()
-    val result = PublishSubject.create<List<Movie>>()
+    val discoverMoviesUseCase: DiscoverMoviesUseCase = mock {
+        on { execute() } doReturn Single.never()
+    }
 
-    @Before
-    override fun setUp() {
-        super.setUp()
-        whenever(discoverMoviesUseCase.execute()).thenReturn(result)
+    val tested: DiscoverMoviesViewModel by lazy {
+        DiscoverMoviesViewModel(discoverMoviesUseCase, TestRxSchedulers())
     }
 
     @Test
-    fun `should show progress bar when starts to fetch data`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
+    fun `should set state to loading when starts to fetch data`() {
+        tested.onFirstCreate()
 
-        testSubject.isLoading.value shouldEqual true
+        tested.state.value shouldEqual Loading
     }
 
     @Test
-    fun `should hide progress bar when data is fetched`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
-
-        result.onComplete()
-
-        testSubject.isLoading.value shouldEqual false
-    }
-
-    @Test
-    fun `should hide progress bar when error occurs`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
-
-        result.onError(Throwable())
-
-        testSubject.isLoading.value shouldEqual false
-    }
-
-    @Test
-    fun `should show error message when error occurs`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
-
-        result.onError(Throwable())
-
-        testSubject.errorHappened.value shouldEqual true
-    }
-
-    @Test
-    fun `should load list when data is fetched`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
+    fun `should set state to loaded when data is fetched`() {
         val data = givenResultData()
-        result.onNext(data)
+        whenever(discoverMoviesUseCase.execute()).thenReturn(Single.just(data))
 
-        testSubject.list.value shouldEqual data
+        tested.onFirstCreate()
+
+        tested.state.value shouldEqual Loaded(data)
+        tested.data.value shouldEqual data
     }
 
     @Test
-    fun `should call dispose when viewModel is cleared`() {
-        val testSubject = DiscoverMoviesViewModel(discoverMoviesUseCase)
+    fun `should set state to error when error occurred`() {
+        whenever(discoverMoviesUseCase.execute()).thenReturn(Single.error(Throwable()))
 
-        testSubject.onCleared()
+        tested.onFirstCreate()
 
-        verify(discoverMoviesUseCase).dispose()
+        tested.state.value shouldEqual Error
     }
 
     private fun givenResultData(): List<Movie> {

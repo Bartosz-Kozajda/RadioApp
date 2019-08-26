@@ -2,10 +2,10 @@ package com.bkozajda.radioapp.common.views
 
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class RecyclerViewAdapter<T> :
-        RecyclerView.Adapter<BindingViewHolder<T>>() {
+abstract class RecyclerViewAdapter<T> : RecyclerView.Adapter<BindingViewHolder<T>>() {
 
     private val data: MutableList<T> = mutableListOf()
+    protected val items: List<T> = data
 
     override fun onBindViewHolder(holder: BindingViewHolder<T>, position: Int) {
         holder.bind(data[position])
@@ -15,7 +15,7 @@ abstract class RecyclerViewAdapter<T> :
         newData?.let {
             data.clear()
             data.addAll(it)
-            notifyItemInserted(it.size - 1)
+            notifyDataSetChanged()
         }
     }
 

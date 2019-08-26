@@ -1,30 +1,35 @@
 package com.bkozajda.radioapp.presentation.movieDetail.presentation
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.bkozajda.domain.model.DetailedMovie
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
+import com.bkozajda.radioapp.common.extensions.subscribeWithState
 import com.bkozajda.radioapp.common.schedulers.RxSchedulers
+import com.bkozajda.radioapp.common.state.ViewModelState
+import com.bkozajda.radioapp.common.viewmodels.LifecycleViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.subscribeBy
 
 class MovieDetailViewModel constructor(
     private val movieDetailUseCase: MovieDetailUseCase,
     private val schedulers: RxSchedulers
-) : ViewModel() {
+) : LifecycleViewModel() {
 
-    var state: MovieDetailViewModelState = MovieDetailViewModelState.Empty()
-    val movie = MutableLiveData<DetailedMovie>()
-    val isLoading = MutableLiveData<Boolean>()
-    val errorHappened = MutableLiveData<Boolean>()
+    var movieId: Int = 0
+
+    val state = MutableLiveData<ViewModelState>()
+    val data = MutableLiveData<DetailedMovie>()
 
     private val disposables = CompositeDisposable()
 
-    fun onStart(id: Int) {
-        when (state) {
-            is MovieDetailViewModelState.Empty -> fetchMovie(id)
-        }
+    override fun onFirstCreate() {
+        super.onFirstCreate()
+        fetchMovie(movieId)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposables.clear()
     }
 
     private fun fetchMovie(id: Int) {
@@ -32,14 +37,6 @@ class MovieDetailViewModel constructor(
             .execute(id)
             .subscribeOn(schedulers.io())
             .observeOn(schedulers.mainThread())
-            .subscribeBy(
-                onSuccess = { movie.value = it },
-                onError = { errorHappened.value = true }
-            )
-    }
-
-    public override fun onCleared() {
-        super.onCleared()
-        disposables.clear()
+            .subscribeWithState(state, data)
     }
 }

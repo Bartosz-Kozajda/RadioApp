@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bkozajda.radioapp.R
+import com.bkozajda.radioapp.common.extensions.observeLifecycleIn
 import com.bkozajda.radioapp.databinding.FragmentMovieDetailBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.MOVIE_ID_KEY
 import com.bkozajda.radioapp.presentation.movieDetail.presentation.MovieDetailViewModel
@@ -21,6 +22,8 @@ class MovieDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        movieDetailViewModel.movieId = movieId()
+        observeLifecycleIn(movieDetailViewModel)
         val binding: FragmentMovieDetailBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_movie_detail, container, false)
         binding.let {
@@ -30,8 +33,6 @@ class MovieDetailFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        movieDetailViewModel.onStart(arguments?.getInt(MOVIE_ID_KEY) ?: 0)
-    }
+    private fun movieId(): Int =
+        arguments?.getInt(MOVIE_ID_KEY)!!
 }

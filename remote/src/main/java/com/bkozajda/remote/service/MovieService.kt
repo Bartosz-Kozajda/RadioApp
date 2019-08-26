@@ -5,7 +5,6 @@ import com.bkozajda.data.model.MovieEntity
 import com.bkozajda.data.repository.MovieRemote
 import com.bkozajda.remote.mapper.DetailedMovieEntityMapper
 import com.bkozajda.remote.mapper.MovieEntityMapper
-import io.reactivex.Observable
 import io.reactivex.Single
 
 class MovieService(

@@ -5,7 +5,6 @@ import com.bkozajda.data.mapper.MovieMapper
 import com.bkozajda.domain.model.DetailedMovie
 import com.bkozajda.domain.model.Movie
 import com.bkozajda.domain.repository.MovieRepository
-import io.reactivex.Observable
 import io.reactivex.Single
 
 class MovieDataRepository(

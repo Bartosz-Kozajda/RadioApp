@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bkozajda.radioapp.R
+import com.bkozajda.radioapp.common.extensions.observeLifecycleIn
 import com.bkozajda.radioapp.databinding.FragmentDiscoverMoviesBinding
 import com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel
 import kotlinx.android.synthetic.main.fragment_discover_movies.*
@@ -24,6 +25,7 @@ class DiscoverMoviesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        observeLifecycleIn(discoverMoviesViewModel)
         val binding: FragmentDiscoverMoviesBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_discover_movies, container, false)
         binding.let {

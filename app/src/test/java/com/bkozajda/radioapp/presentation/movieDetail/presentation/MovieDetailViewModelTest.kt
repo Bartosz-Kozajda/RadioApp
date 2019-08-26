@@ -7,6 +7,7 @@ import com.bkozajda.radioapp.common.TestRxSchedulers
 import com.bkozajda.radioapp.common.state.ViewModelState.Error
 import com.bkozajda.radioapp.common.state.ViewModelState.Loaded
 import com.bkozajda.radioapp.common.state.ViewModelState.Loading
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -17,7 +18,7 @@ import org.junit.Test
 class MovieDetailViewModelTest : BaseViewModelTest() {
 
     val movieDetailUseCase: MovieDetailUseCase = mock {
-        on { execute(tested.movieId) } doReturn Single.never()
+        on { execute(any()) } doReturn Single.never()
     }
 
     val tested: MovieDetailViewModel by lazy {

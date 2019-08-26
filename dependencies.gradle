@@ -19,7 +19,7 @@ ext {
     gsonVersion = '2.8.0'
     retrofitVersion = '2.6.1'
     okHttpVersion = '3.8.1'
-    rxJavaVersion = '2.2.11'
+    rxJavaVersion = '2.2.4'
     rxKotlinVersion = '2.4.0'
     rxAndroidVersion = '2.1.1'
     dataBindingCompilerVersion = '3.2.0-beta02'
@@ -34,8 +34,8 @@ ext {
     jUnitVersion = '4.12'
     espressoVersion = '3.1.0-alpha3'
     androidSupportRunnerVersion = '1.1.0-alpha3'
-    mockitoVersion = '2.0.0-RC1'
-    kluentVersion = '1.39'
+    mockitoVersion = '2.1.0'
+    kluentVersion = '1.53'
 
     // App
     appDependencies = [

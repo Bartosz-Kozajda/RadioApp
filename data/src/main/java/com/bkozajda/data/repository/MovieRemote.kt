@@ -2,7 +2,6 @@ package com.bkozajda.data.repository
 
 import com.bkozajda.data.model.DetailedMovieEntity
 import com.bkozajda.data.model.MovieEntity
-import io.reactivex.Observable
 import io.reactivex.Single
 
 interface MovieRemote {

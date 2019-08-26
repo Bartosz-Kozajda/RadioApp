@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bkozajda.radioapp.R
+import com.bkozajda.radioapp.common.extensions.observeLifecycleIn
 import com.bkozajda.radioapp.databinding.FragmentPopularMoviesBinding
 import com.bkozajda.radioapp.presentation.popular.presentation.PopularMoviesViewModel
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
@@ -24,6 +25,7 @@ class PopularMoviesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        observeLifecycleIn(popularMoviesViewModel)
         val binding: FragmentPopularMoviesBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_popular_movies, container, false)
         binding.let {

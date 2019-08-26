@@ -3,7 +3,6 @@ package com.bkozajda.remote.service
 import com.bkozajda.remote.model.DetailedMovieModel
 import com.bkozajda.remote.model.DiscoverModel
 import com.bkozajda.remote.model.PopularModel
-import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

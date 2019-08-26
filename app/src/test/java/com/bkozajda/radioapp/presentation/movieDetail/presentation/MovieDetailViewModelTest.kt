@@ -3,96 +3,51 @@ package com.bkozajda.radioapp.presentation.movieDetail.presentation
 import com.bkozajda.domain.model.DetailedMovie
 import com.bkozajda.domain.usecases.movieDetail.MovieDetailUseCase
 import com.bkozajda.radioapp.common.BaseViewModelTest
-import com.nhaarman.mockitokotlin2.any
+import com.bkozajda.radioapp.common.TestRxSchedulers
+import com.bkozajda.radioapp.common.state.ViewModelState.Error
+import com.bkozajda.radioapp.common.state.ViewModelState.Loaded
+import com.bkozajda.radioapp.common.state.ViewModelState.Loading
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import io.reactivex.subjects.PublishSubject
-import org.amshove.kluent.shouldBeInstanceOf
+import io.reactivex.Single
 import org.amshove.kluent.shouldEqual
-import org.junit.Before
 import org.junit.Test
 
 class MovieDetailViewModelTest : BaseViewModelTest() {
 
-    val movieDetailUseCase: MovieDetailUseCase = mock()
-    val result = PublishSubject.create<DetailedMovie>()
+    val movieDetailUseCase: MovieDetailUseCase = mock {
+        on { execute(tested.movieId) } doReturn Single.never()
+    }
 
-    val testSubject = MovieDetailViewModel(movieDetailUseCase)
-
-    @Before
-    override fun setUp() {
-        super.setUp()
-        whenever(movieDetailUseCase.execute(any())).thenReturn(result)
+    val tested: MovieDetailViewModel by lazy {
+        MovieDetailViewModel(movieDetailUseCase, TestRxSchedulers())
     }
 
     @Test
-    fun `should show progress bar when starts to fetch data`() {
-        testSubject.onStart(1)
+    fun `should set state to loading when starts to fetch data`() {
+        tested.onFirstCreate()
 
-        testSubject.isLoading.value shouldEqual true
-    }
-
-    @Test
-    fun `should hide progress bar when data is fetched`() {
-        testSubject.onStart(1)
-
-        result.onComplete()
-
-        testSubject.isLoading.value shouldEqual false
-    }
-
-    @Test
-    fun `should hide progress bar when error occurs`() {
-        testSubject.onStart(1)
-
-        result.onError(Throwable())
-
-        testSubject.isLoading.value shouldEqual false
-    }
-
-    @Test
-    fun `should show error message when error occurs`() {
-        testSubject.onStart(1)
-
-        result.onError(Throwable())
-
-        testSubject.errorHappened.value shouldEqual true
-    }
-
-    @Test
-    fun `should load movie when data is fetched`() {
-        val data = mock<DetailedMovie>()
-        testSubject.onStart(1)
-
-        result.onNext(data)
-
-        testSubject.movie.value shouldEqual data
+        tested.state.value shouldEqual Loading
     }
 
     @Test
     fun `should set state to loaded when data is fetched`() {
-        testSubject.onStart(1)
+        val data = mock<DetailedMovie>()
+        whenever(movieDetailUseCase.execute(tested.movieId)).thenReturn(Single.just(data))
 
-        result.onComplete()
+        tested.onFirstCreate()
 
-        testSubject.state shouldBeInstanceOf MovieDetailViewModelState.Loaded::class
+        tested.state.value shouldEqual Loaded(data)
+        tested.data.value shouldEqual data
     }
 
     @Test
-    fun `should do nothing when onStart is called and viewModel state is not empty`() {
-        testSubject.state = MovieDetailViewModelState.Loaded()
+    fun `should set state to error when error occurred`() {
+        whenever(movieDetailUseCase.execute(tested.movieId)).thenReturn(Single.error(Throwable()))
 
-        testSubject.onStart(1)
+        tested.onFirstCreate()
 
-        verify(movieDetailUseCase, never()).execute(any())
-    }
-
-    @Test
-    fun `should call dispose when viewModel is cleared`() {
-        testSubject.onCleared()
-
-        verify(movieDetailUseCase).dispose()
+        tested.state.value shouldEqual Error
     }
 }

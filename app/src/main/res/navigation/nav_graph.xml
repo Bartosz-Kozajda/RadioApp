@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/discoverMoviesFragment"
         android:name="com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesFragment"
-        android:label="DiscoverMoviesFragment"
+        android:label="@string/discover"
         tools:layout="@layout/fragment_discover_movies">
         <action
             android:id="@+id/action_discoverMoviesFragment_to_movieDetailFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.bkozajda.radioapp.presentation.popular.view.PopularMoviesFragment"
-        android:label="PopularMoviesFragment"
+        android:label="@string/popular"
         tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_movieDetailFragment"
@@ -28,7 +28,6 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.bkozajda.radioapp.presentation.movieDetail.view.MovieDetailFragment"
-        android:label="MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
         <argument
             android:name="movie_id"

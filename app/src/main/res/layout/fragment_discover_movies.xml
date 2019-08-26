@@ -6,10 +6,6 @@
         <variable
             name="viewModel"
             type="com.bkozajda.radioapp.presentation.discover.presentation.DiscoverMoviesViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.bkozajda.radioapp.presentation.discover.view.DiscoverMoviesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +13,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:data="@{viewModel.data}"

@@ -22,6 +22,7 @@ class MovieDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // TODO: provide movie id via constructor to viewmodel
         movieDetailViewModel.movieId = movieId()
         observeLifecycleIn(movieDetailViewModel)
         val binding: FragmentMovieDetailBinding =

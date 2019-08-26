@@ -15,10 +15,12 @@ import kotlinx.android.synthetic.main.fragment_discover_movies.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+private const val GRID_COLUMNS_COUNT = 2
+
 class DiscoverMoviesFragment : Fragment() {
 
     private val discoverMoviesViewModel: DiscoverMoviesViewModel by viewModel()
-    private val adapter: DiscoverMoviesAdapter by inject()
+    private val discoverMoviesAdapter: DiscoverMoviesAdapter by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +32,6 @@ class DiscoverMoviesFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_discover_movies, container, false)
         binding.let {
             it.viewModel = discoverMoviesViewModel
-            it.adapter = adapter
             it.lifecycleOwner = this
         }
         return binding.root
@@ -42,7 +43,9 @@ class DiscoverMoviesFragment : Fragment() {
     }
 
     private fun setupList() {
-        recycler_view.layoutManager = GridLayoutManager(context, 2)
-        recycler_view.adapter = adapter
+        recyclerView.apply {
+            layoutManager = GridLayoutManager(context, GRID_COLUMNS_COUNT)
+            adapter = discoverMoviesAdapter
+        }
     }
 }

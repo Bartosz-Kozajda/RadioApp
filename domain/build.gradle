@@ -15,4 +15,10 @@ dependencies {
 
     implementation domainDependencies.kotlin
     implementation domainDependencies.rxKotlin
+
+    def testDependencies = rootProject.ext.testDependencies
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }
